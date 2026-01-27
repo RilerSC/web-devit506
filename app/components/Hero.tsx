@@ -38,7 +38,7 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="text-xl md:text-2xl text-gray-600 mb-10 max-w-3xl mx-auto"
           >
-            Consultoría estratégica y desarrollo de software liderado por un ingeniero 
+            Consultoría estratégica y desarrollo de software liderado por un equipo 
             con más de una década de experiencia. Excelencia técnica con visión de negocio.
           </motion.p>
 

@@ -57,7 +57,7 @@ export default function Footer() {
             <ul className="space-y-2 text-sm">
               <li>
                 <a href="mailto:info@devit506.com" className="hover:text-brand-blue transition-colors">
-                  info@devit506.com
+                  jrsolorzano@devit506.com
                 </a>
               </li>
               <li>

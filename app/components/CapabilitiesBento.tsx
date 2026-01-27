@@ -12,7 +12,7 @@ export default function CapabilitiesBento() {
     },
     {
       title: "Desarrollo de Software a Medida",
-      description: "Soluciones empresariales con Next.js, React, TypeScript y Azure. Arquitectura escalable y código de calidad industrial.",
+      description: "Soluciones empresariales con Next.js, React, TypeScript, Python, Azure, HTML5, etc. Arquitectura escalable y código de calidad industrial.",
       icon: "⚙️",
       size: "medium"
     },

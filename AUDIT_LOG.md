@@ -3687,7 +3687,354 @@ import { motion } from "framer-motion";
 
 ---
 
+## [2026-01-27] Implementación de KPIs Animados en TrustBar
+
+### 🎯 Objetivo del Prompt
+Potenciar el componente `TrustBar.tsx` agregando contadores animados que refuercen la autoridad técnica y trayectoria de DEVIT506 mediante métricas visuales impactantes.
+
+### 📁 Archivos Modificados
+
+#### **TrustBar.tsx** (modificado)
+- **Componente `AnimatedCounter`**: Contador animado usando `framer-motion`
+  - Utiliza `useMotionValue`, `useSpring` y `useTransform` para animación fluida
+  - Animación controlada de 0 a valor final en exactamente 2 segundos
+  - Soporte para decimales (ej: 99.9%) y sufijos personalizados (+, %)
+  - Easing: `easeOut` para transición natural
+
+- **Componente `KPICard`**: Tarjeta individual de métrica
+  - Animación de entrada: `opacity: 0 → 1`, `y: 30 → 0`
+  - Delay escalonado (0s, 0.1s, 0.2s, 0.3s) para efecto cascada
+  - `viewport={{ once: true }}` para ejecutar animación solo una vez
+  - Diseño responsive con tipografía escalable
+
+- **KPIs Implementados**:
+  1. **+50 Proyectos Exitosos**: Refleja volumen de entregas
+  2. **+30 Clientes Satisfechos**: Demuestra satisfacción del cliente
+  3. **+12 Años de Trayectoria**: Resalta experiencia desde 2012
+  4. **99.9% Uptime en Soluciones**: Muestra robustez técnica
+
+### 🎨 Diseño y Estética
+
+#### Colores y Tipografía
+- **Números**: Color de marca `#009CDE` (PANTONE 2925 C)
+  - Tamaños responsivos: `text-4xl` (móvil) → `text-5xl` (tablet) → `text-6xl` (desktop)
+  - Peso: `font-bold` para máximo impacto visual
+- **Textos descriptivos**: `text-gray-500` sobre fondo blanco
+  - Tamaño: `text-sm` (móvil) → `text-base` (desktop)
+  - Peso: `font-medium` para legibilidad
+
+#### Layout Responsive
+- **Móvil** (`grid-cols-2`): Grid 2x2 para optimizar espacio
+- **Desktop** (`lg:grid-cols-4`): Grid 1x4 horizontal para máximo impacto
+- Espaciado: `gap-6` (móvil) → `gap-8` (desktop)
+- Padding interno: `p-6` para respiración visual
+
+### ⚙️ Lógica de Animación
+
+#### Configuración Técnica
+```typescript
+// Animación de contador
+motionValue.animate(0, value, {
+  duration: 2,        // Exactamente 2 segundos
+  ease: "easeOut",    // Aceleración suave
+});
+
+// Animación de entrada
+initial={{ opacity: 0, y: 30 }}
+whileInView={{ opacity: 1, y: 0 }}
+viewport={{ once: true }}  // Solo una vez
+transition={{ duration: 0.6, delay: escalonado }}
+```
+
+#### Optimizaciones
+- **Performance**: `viewport={{ once: true }}` evita re-animaciones en scroll
+- **UX**: Delays escalonados (0.1s entre cada KPI) crean efecto cascada profesional
+- **Accesibilidad**: Números grandes y contrastados para legibilidad
+- **Mobile-first**: Animaciones optimizadas para dispositivos táctiles
+
+### 📊 Estructura de Datos
+
+```typescript
+const kpis = [
+  { value: 50, suffix: "+", label: "Proyectos Exitosos", decimals: 0, delay: 0 },
+  { value: 30, suffix: "+", label: "Clientes Satisfechos", decimals: 0, delay: 0.1 },
+  { value: 12, suffix: "+", label: "Años de Trayectoria", decimals: 0, delay: 0.2 },
+  { value: 99.9, suffix: "%", label: "Uptime en Soluciones", decimals: 1, delay: 0.3 },
+];
+```
+
+### ✅ Criterios de Aceptación (DoD)
+
+- [x] Contadores animan de 0 a valor final en 2 segundos
+- [x] Animación se activa solo cuando entra en viewport (`whileInView`)
+- [x] `viewport={{ once: true }}` implementado correctamente
+- [x] Números en color de marca `#009CDE`
+- [x] Textos descriptivos en gris claro (`text-gray-500`)
+- [x] Layout responsive: 2x2 móvil, 1x4 desktop
+- [x] Delays escalonados para efecto cascada
+- [x] Soporte para decimales (99.9%)
+- [x] Documentación actualizada en AUDIT_LOG.md
+
+### 🔍 Testing Recomendado
+
+1. **Visual**: Verificar animación en diferentes viewport sizes
+2. **Performance**: Lighthouse score (animaciones no deben afectar FPS)
+3. **Accesibilidad**: Contraste de colores WCAG AA
+4. **Cross-browser**: Chrome, Firefox, Safari, Edge
+
+### 📝 Notas Técnicas
+
+- **Dependencia**: `framer-motion@^12.29.2` (ya instalada)
+- **Hooks utilizados**: `useMotionValue`, `useSpring`, `useTransform`, `useEffect`
+- **Patrón**: Componentes funcionales con TypeScript estricto
+- **Mantenibilidad**: KPIs centralizados en array para fácil actualización
+
+---
+
+## [2026-01-27] Transformación de TrustBar: Grid de Logos de Clientes
+
+### 🎯 Objetivo del Prompt
+Transformar la sección TrustBar agregando un grid de logos de clientes debajo de los contadores animados, con efectos visuales interactivos y animación de revelado gradual.
+
+### 📁 Archivos Modificados
+
+#### **TrustBar.tsx** (modificado)
+- **Eliminación de sección anterior**: Removida la sección "Socios Estratégicos de Confianza" con lista de texto de clientes
+- **Nuevo componente `ClientLogo`**: Componente individual para cada logo
+  - Utiliza `next/image` para optimización automática
+  - Efecto visual: `grayscale` + `opacity-60` inicial → color original + `opacity-100` en hover
+  - Transición suave: `transition-all duration-300`
+  - Animación de entrada: `opacity: 0 → 1`, `y: 20 → 0` con delay escalonado
+  - `viewport={{ once: true }}` para optimización de rendimiento
+
+- **Nueva sección "Ellos confían en nosotros"**:
+  - Grid responsivo de logos de clientes
+  - 9 clientes integrados desde `/public/clientes/`
+
+### 🎨 Diseño y Estética
+
+#### Grid Responsivo
+- **Móvil** (`grid-cols-2`): 2 columnas para optimizar espacio
+- **Tablet** (`md:grid-cols-3`): 3 columnas
+- **Desktop** (`lg:grid-cols-4`): 4 columnas
+- **XL Desktop** (`xl:grid-cols-5`): 5 columnas para pantallas grandes
+- Altura adaptativa: `h-24` (móvil) → `h-28` (tablet) → `h-32` (desktop)
+
+#### Efecto Visual Grayscale
+- **Estado inicial**: 
+  - `grayscale`: Escala de grises completa
+  - `opacity-60`: Opacidad reducida al 60%
+- **Estado hover**:
+  - `grayscale-0`: Color original restaurado
+  - `opacity-100`: Opacidad completa
+- **Transición**: `transition-all duration-300` para cambio suave
+
+### ⚙️ Optimización con next/image
+
+#### Configuración Técnica
+```typescript
+<Image
+  src={src}
+  alt={alt}
+  fill
+  className="object-contain"
+  sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+/>
+```
+
+#### Beneficios
+- **Lazy loading automático**: Imágenes cargadas solo cuando entran en viewport
+- **Optimización de formato**: WebP/AVIF cuando es compatible
+- **Responsive images**: `sizes` attribute para carga adaptativa
+- **Performance**: Reducción de ancho de banda y mejora de Core Web Vitals
+
+### 🎬 Animación de Revelado Gradual (Stagger)
+
+#### Configuración
+```typescript
+{clients.map((client, index) => (
+  <ClientLogo
+    key={index}
+    src={client.src}
+    alt={client.alt}
+    delay={index * 0.1}  // Stagger de 0.1s entre cada logo
+  />
+))}
+```
+
+#### Características
+- **Delay escalonado**: Cada logo aparece 0.1s después del anterior
+- **Duración**: 0.5s por logo
+- **Efecto**: Revelado gradual de izquierda a derecha, arriba a abajo
+- **Optimización**: `viewport={{ once: true }}` evita re-animaciones
+
+### 📊 Lista de Clientes Integrados
+
+1. **COOPEBANACIO R.L.** (`Coopebanacio.png`)
+2. **Universidad FUNDEPOS** (`Universidad FUNDEPOS.png`)
+3. **CENECOOP** (`CENECOOP.png`)
+4. **COOPECOBANA** (`COOPECOBANA.png`)
+5. **Observatorio de Sostenibilidad** (`Observatorio de Sostenibilidad.svg`)
+6. **Creativehut** (`Creativehut.png`)
+7. **Guanaco** (`Guanaco.png`)
+8. **Rey Velaz** (`Rey Velaz.jpeg`)
+9. **Pasitos de Bebe** (`Pasitos de Bebe.jpeg`)
+
+### ✅ Criterios de Aceptación (DoD)
+
+- [x] Grid de logos implementado debajo de los contadores
+- [x] Logos en escala de grises con opacidad reducida inicialmente
+- [x] Hover restaura color original y opacidad completa
+- [x] `next/image` utilizado para optimización
+- [x] Grid responsivo (2→3→4→5 columnas según viewport)
+- [x] Animación stagger implementada (0.1s delay entre logos)
+- [x] `viewport={{ once: true }}` configurado
+- [x] Sección renombrada a "Ellos confían en nosotros"
+- [x] Todos los logos de `/public/clientes/` integrados
+- [x] Documentación actualizada en AUDIT_LOG.md
+
+### 🔍 Testing Recomendado
+
+1. **Visual**: Verificar efecto grayscale → color en hover
+2. **Responsive**: Probar grid en diferentes viewport sizes
+3. **Performance**: Lighthouse score (next/image debe mejorar LCP)
+4. **Animación**: Verificar stagger suave al hacer scroll
+5. **Accesibilidad**: Alt text presente en todos los logos
+
+### 📝 Notas Técnicas
+
+- **Dependencia**: `next/image` (incluida en Next.js 16.1.5)
+- **Formato de imágenes**: Soporta PNG, JPEG, SVG
+- **Patrón**: Componente `ClientLogo` reutilizable
+- **Mantenibilidad**: Array `clients` centralizado para fácil actualización
+- **Separación visual**: Border-top entre sección de KPIs y logos
+
+### 🔄 Transformación Realizada
+
+**Antes:**
+- Sección "Socios Estratégicos de Confianza" con lista de texto
+- Sin logos visuales
+- Sin efectos interactivos
+
+**Después:**
+- Sección "Ellos confían en nosotros" con grid de logos
+- Logos reales de clientes con optimización next/image
+- Efecto grayscale → color en hover
+- Animación stagger al hacer scroll
+- Grid totalmente responsivo
+
+---
+
+## [2026-01-27] Refinamiento Estético: Efecto macOS Dock en Logos de Clientes
+
+### 🎯 Objetivo del Prompt
+Refinar la estética de la sección "Ellos confían en nosotros" eliminando el filtro grayscale y reemplazándolo con un efecto de escala tipo macOS Dock para mejorar la interactividad visual.
+
+### 📁 Archivos Modificados
+
+#### **TrustBar.tsx** (modificado)
+- **Componente `ClientLogo` refactorizado**:
+  - **Eliminado**: Filtro `grayscale` y transición CSS tradicional
+  - **Nuevo**: Efecto de escala con `framer-motion` `whileHover`
+  - **Opacidad ajustada**: `opacity-80` inicial → `opacity-100` en hover
+  - **Transición spring**: Configuración elástica tipo macOS Dock
+
+### 🎨 Cambios de Estética
+
+#### Antes (Grayscale)
+```tsx
+// Estado inicial: grayscale + opacity-60
+// Hover: color original + opacity-100
+// Transición: CSS transition-all duration-300
+```
+
+#### Después (macOS Dock Effect)
+```tsx
+// Estado inicial: color completo + opacity-80
+// Hover: scale 1.1 + opacity-100
+// Transición: Spring (stiffness: 300, damping: 20)
+```
+
+### ⚙️ Configuración Técnica
+
+#### Efecto macOS Dock
+```typescript
+<motion.div
+  className="relative w-full h-full opacity-80"
+  whileHover={{ 
+    scale: 1.1,        // Aumento del 10%
+    opacity: 1         // Opacidad completa
+  }}
+  transition={{
+    type: "spring",
+    stiffness: 300,    // Rigidez alta para respuesta rápida
+    damping: 20        // Amortiguación para movimiento elástico
+  }}
+>
+```
+
+#### Parámetros Spring
+- **stiffness: 300**: Alta rigidez para respuesta rápida y precisa
+- **damping: 20**: Amortiguación moderada para efecto elástico suave
+- **Resultado**: Movimiento fluido y natural que imita la barra Dock de macOS
+
+### 📐 Optimización del Contenedor
+
+#### Padding Aumentado
+- **Antes**: `p-4` (16px)
+- **Después**: `p-6` (móvil) → `p-8` (desktop) (24px → 32px)
+- **Razón**: Espacio suficiente para que el scale 1.1 no cause colisiones visuales con logos vecinos
+
+#### Altura Mantenida
+- Móvil: `h-24` (96px)
+- Tablet: `h-28` (112px)
+- Desktop: `h-32` (128px)
+
+### ✅ Criterios de Aceptación (DoD)
+
+- [x] Filtro grayscale eliminado completamente
+- [x] Opacidad inicial configurada en `opacity-80`
+- [x] Opacidad hover configurada en `opacity-100`
+- [x] Efecto de escala `1.1` implementado con `whileHover`
+- [x] Transición spring configurada (stiffness: 300, damping: 20)
+- [x] Padding del contenedor aumentado para evitar colisiones
+- [x] Logos muestran color completo desde el inicio
+- [x] Movimiento elástico tipo macOS Dock funcional
+- [x] Sin errores de linting
+- [x] Documentación actualizada en AUDIT_LOG.md
+
+### 🔍 Testing Recomendado
+
+1. **Visual**: Verificar efecto de escala suave y elástico en hover
+2. **Interactividad**: Confirmar que no hay colisiones entre logos al hacer hover
+3. **Performance**: Verificar que la animación spring no afecta FPS
+4. **Responsive**: Probar en diferentes viewport sizes
+5. **Accesibilidad**: Confirmar que el efecto no interfiere con navegación por teclado
+
+### 📝 Notas Técnicas
+
+- **Dependencia**: `framer-motion@^12.29.2` (ya instalada)
+- **Tipo de transición**: `spring` (nativo de framer-motion)
+- **Ventaja sobre CSS**: Movimiento más natural y elástico
+- **UX mejorada**: Feedback visual más claro y profesional
+- **Mantenibilidad**: Configuración centralizada en componente `ClientLogo`
+
+### 🎯 Impacto en UX
+
+**Antes:**
+- Logos en escala de grises (menos atractivos)
+- Transición CSS estándar (menos fluida)
+- Opacidad baja (60%) que reducía visibilidad
+
+**Después:**
+- Logos en color completo (más atractivos)
+- Animación spring elástica (más fluida y natural)
+- Opacidad optimizada (80% → 100%) para mejor visibilidad
+- Efecto de escala tipo macOS Dock (más interactivo y moderno)
+
+---
+
 ## Autor del Log
 **Asistente AI** — siguiendo PlayBook de DEVIT506  
 **Fecha**: 2026-01-27  
-**Revisión**: v6.0 (optimización pre-deployment: mobile + SEO + animaciones)
+**Revisión**: v9.0 (Refinamiento estético: macOS Dock effect en logos)
