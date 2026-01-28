@@ -1,29 +1,33 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export default function FeaturedProjects() {
   const projects = [
     {
-      title: "COOPEBANACIO R.L. — Ecosistema Digital Financiero",
-      category: "Fintech",
-      description: "Marketplace transaccional con apps nativas iOS/Android, automatización de cobros y gestión de servicios. Como CTO Externo, gestionamos el Plan Estratégico de TI y Presupuesto desde 2012.",
-      tags: ["Next.js", "React Native", "Azure", "Automatización", "Planificación TI"],
-      metrics: "12+ años de partnership estratégico"
+      title: "Coopebanacio R.L. — Marketplace Transaccional Cooperativo",
+      category: "E-commerce / Fintech",
+      description: "Ecosistema digital para 150,000 asociados con arquitectura Zero-Trust y motor geoespacial. Proyectado para generar $500K+ en nuevos ingresos digitales.",
+      tags: ["Next.js 14", "Azure", "PostGIS", "Fintech"],
+      metrics: "95% Reducción de Fraude | <1.2s Load Time",
+      link: "/proyectos/marketplace-coopebanacio"
     },
     {
-      title: "Universidad FUNDEPOS — Transformación Digital Educativa",
-      category: "Educación",
-      description: "Modernización completa del ecosistema digital universitario. Desarrollo de nueva Web Institucional y MVP del Observatorio de Sostenibilidad con analítica avanzada.",
-      tags: ["Next.js", "TypeScript", "Azure", "CMS", "Data Analytics"],
-      metrics: "Plataforma escalable para 5000+ estudiantes"
+      title: "Universidad FUNDEPOS — Observatorio de Sostenibilidad",
+      category: "Data & Sostenibilidad",
+      description: "Plataforma de inteligencia para el monitoreo de indicadores de desarrollo sostenible. Arquitectura server-first optimizada para alta disponibilidad y escalabilidad hacia Big Data.",
+      tags: ["Next.js 15", "React 19", "Data Intelligence", "Education"],
+      metrics: "55% Menos JS en Cliente | Azure Ready",
+      link: "/proyectos/observatorio-sostenibilidad"
     },
     {
       title: "Integración HubSpot — CODEAS ERP",
       category: "Integración de Sistemas",
       description: "Conector a medida entre HubSpot CRM y ERP CODEAS (MS SQL) para optimización del flujo comercial. Sincronización bidireccional de clientes, oportunidades y pipeline.",
-      tags: ["Node.js", "MS SQL", "HubSpot API", "REST API", "ETL"],
-      metrics: "Sincronización en tiempo real de 10K+ registros"
+      tags: ["Python", "MS SQL", "HubSpot API", "REST API", "ETL"],
+      metrics: "Sincronización en tiempo real de 10K+ registros",
+      link: "/proyectos/integracion-hubspot-codeas"
     }
   ];
 
@@ -39,7 +43,7 @@ export default function FeaturedProjects() {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-4xl md:text-5xl font-bold text-brand-black mb-4">
-            Casos de Éxito
+            Nuestros mas recientes casos de Éxito
           </h2>
           <p className="text-xl text-gray-600">
             Impacto real en organizaciones líderes. Complejidad técnica resuelta con claridad estratégica.
@@ -91,12 +95,24 @@ export default function FeaturedProjects() {
 
                 {/* CTA */}
                 <div className="flex-shrink-0">
-                  <button className="text-brand-blue font-medium hover:text-brand-blue/80 transition-colors flex items-center">
-                    Ver Caso
-                    <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                  </button>
+                  {project.link ? (
+                    <Link 
+                      href={project.link}
+                      className="text-brand-blue font-medium hover:text-brand-blue/80 transition-colors flex items-center"
+                    >
+                      Ver Caso
+                      <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
+                    </Link>
+                  ) : (
+                    <span className="text-gray-400 font-medium flex items-center cursor-not-allowed">
+                      Próximamente
+                      <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                    </span>
+                  )}
                 </div>
               </div>
             </motion.div>
