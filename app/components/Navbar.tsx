@@ -54,7 +54,7 @@ export default function Navbar() {
           {/* Desktop Navigation Links */}
           <div className="hidden md:flex items-center space-x-8">
             <Link 
-              href="#capabilities" 
+              href="https://www.devit506.net#capabilities" 
               className="text-sm font-medium text-gray-700 hover:text-brand-blue transition-colors"
             >
               Capacidades
@@ -66,7 +66,7 @@ export default function Navbar() {
               Casos de Éxito
             </Link>
             <Link 
-              href="#contact" 
+              href="https://www.devit506.net#contact" 
               className="text-sm font-medium text-gray-700 hover:text-brand-blue transition-colors"
             >
               Contacto
@@ -76,7 +76,7 @@ export default function Navbar() {
           {/* Desktop CTA Button */}
           <div className="hidden md:flex items-center">
             <Link
-              href="#contact"
+              href="https://www.devit506.net#contact"
               className="bg-brand-blue text-white px-6 py-2 rounded-md text-sm font-medium hover:bg-brand-blue/90 transition-colors"
             >
               Hablemos
