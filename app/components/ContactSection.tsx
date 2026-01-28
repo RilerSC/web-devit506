@@ -87,7 +87,7 @@ export default function ContactSection() {
                 required
                 value={formData.name}
                 onChange={handleChange}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-brand-blue transition-colors"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-brand-blue transition-colors text-gray-900 bg-white placeholder:text-gray-400"
                 placeholder="Juan Pérez"
               />
             </div>
@@ -104,7 +104,7 @@ export default function ContactSection() {
                 required
                 value={formData.company}
                 onChange={handleChange}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-brand-blue transition-colors"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-brand-blue transition-colors text-gray-900 bg-white placeholder:text-gray-400"
                 placeholder="Nombre de tu empresa"
               />
             </div>
@@ -121,7 +121,7 @@ export default function ContactSection() {
                 required
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-brand-blue transition-colors"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-brand-blue transition-colors text-gray-900 bg-white placeholder:text-gray-400"
                 placeholder="juan@empresa.com"
               />
             </div>
@@ -153,7 +153,7 @@ export default function ContactSection() {
                 value={formData.challenge}
                 onChange={handleChange}
                 rows={5}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-brand-blue transition-colors resize-none"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-brand-blue transition-colors resize-none text-gray-900 bg-white placeholder:text-gray-400"
                 placeholder="Cuéntanos sobre tu proyecto, desafío tecnológico o necesidad de consultoría estratégica..."
               />
             </div>
