@@ -11,7 +11,7 @@ export default function FeaturedProjects() {
       description: "Ecosistema digital para 150,000 asociados con arquitectura Zero-Trust y motor geoespacial. Proyectado para generar $500K+ en nuevos ingresos digitales.",
       tags: ["Next.js 14", "Azure", "PostGIS", "Fintech"],
       metrics: "95% Reducción de Fraude | <1.2s Load Time",
-      link: "/proyectos/marketplace-coopebanacio"
+      link: "https://www.devit506.net/proyectos/marketplace-coopebanacio"
     },
     {
       title: "Universidad FUNDEPOS — Observatorio de Sostenibilidad",
@@ -19,7 +19,7 @@ export default function FeaturedProjects() {
       description: "Plataforma de inteligencia para el monitoreo de indicadores de desarrollo sostenible. Arquitectura server-first optimizada para alta disponibilidad y escalabilidad hacia Big Data.",
       tags: ["Next.js 15", "React 19", "Data Intelligence", "Education"],
       metrics: "55% Menos JS en Cliente | Azure Ready",
-      link: "/proyectos/observatorio-sostenibilidad"
+      link: "https://www.devit506.net/proyectos/observatorio-sostenibilidad"
     },
     {
       title: "Integración HubSpot — CODEAS ERP",
@@ -27,7 +27,7 @@ export default function FeaturedProjects() {
       description: "Conector a medida entre HubSpot CRM y ERP CODEAS (MS SQL) para optimización del flujo comercial. Sincronización bidireccional de clientes, oportunidades y pipeline.",
       tags: ["Python", "MS SQL", "HubSpot API", "REST API", "ETL"],
       metrics: "Sincronización en tiempo real de 10K+ registros",
-      link: "/proyectos/integracion-hubspot-codeas"
+      link: "https://www.devit506.net/proyectos/integracion-hubspot-codeas"
     }
   ];
 
