@@ -142,21 +142,21 @@ export default function Navbar() {
           {/* Navigation Links */}
           <nav className="flex-1 px-6 py-8 space-y-1">
             <a
-              href="https://www.devit506.net/#capabilities"
+              href="/#capabilities"
               onClick={handleLinkClick}
               className="block px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg transition-colors duration-200 font-medium"
             >
               Capacidades
             </a>
             <a
-              href="https://www.devit506.net/#projects"
+              href="/#projects"
               onClick={handleLinkClick}
               className="block px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg transition-colors duration-200 font-medium"
             >
               Casos de Éxito
             </a>
             <a
-              href="https://www.devit506.net/#contact"
+              href="/#contact"
               onClick={handleLinkClick}
               className="block px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg transition-colors duration-200 font-medium"
             >
@@ -167,14 +167,14 @@ export default function Navbar() {
           {/* Footer CTA */}
           <div className="p-6 border-t border-gray-700">
             <a
-              href="https://www.devit506.net/#contact"
+              href="/#contact"
               onClick={handleLinkClick}
               className="block w-full bg-brand-blue text-white text-center px-6 py-3 rounded-lg font-medium hover:bg-brand-blue/90 transition-colors duration-200"
             >
               Hablemos
             </a>
             <p className="mt-4 text-xs text-gray-500 text-center">
-              info@devit506.com
+              jrsolorzano@devit506.com
             </p>
           </div>
         </div>
