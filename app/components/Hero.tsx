@@ -5,74 +5,81 @@ import { motion } from "framer-motion";
 
 export default function Hero() {
   return (
-    <section className="relative bg-gradient-to-b from-gray-50 to-white py-20 md:py-32">
+    <section className="relative mesh-gradient-hero py-20 md:py-32 overflow-hidden">
+      {/* Premium Mesh Gradient Orbs */}
+      <div className="absolute top-[-20%] right-[-10%] w-[600px] h-[600px] bg-brand-blue/10 rounded-full blur-[120px] -z-10"></div>
+      <div className="absolute top-[20%] left-[-15%] w-[500px] h-[500px] bg-violet-500/8 rounded-full blur-[100px] -z-10"></div>
+      <div className="absolute bottom-[-10%] right-[20%] w-[400px] h-[400px] bg-brand-blue/8 rounded-full blur-[80px] -z-10"></div>
+      
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-4xl mx-auto">
           {/* Badge */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="inline-flex items-center space-x-2 bg-brand-blue/10 text-brand-blue px-4 py-2 rounded-full text-sm font-medium mb-6"
+            transition={{ duration: 0.6, delay: 0.1, ease: [0.4, 0, 0.2, 1] }}
+            className="inline-flex items-center space-x-2 bg-white/60 backdrop-blur-sm text-brand-blue px-5 py-2.5 rounded-full text-sm font-medium mb-8 border border-brand-blue/20 shadow-[0_2px_8px_rgba(0,156,222,0.1)]"
           >
             <span className="w-2 h-2 bg-brand-blue rounded-full animate-pulse"></span>
-            <span>Servicios de CTO Externo desde 2012</span>
+            <span className="tracking-wide">Servicios de CTO Externo desde 2012</span>
           </motion.div>
 
           {/* Headline */}
           <motion.h1
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-5xl md:text-6xl lg:text-7xl font-bold text-brand-black mb-6 leading-tight"
+            transition={{ duration: 0.7, delay: 0.2, ease: [0.4, 0, 0.2, 1] }}
+            className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-[1.1] tracking-tight"
           >
-            Socios Tecnológicos
+            <span className="text-gradient-metallic">Socios Tecnológicos</span>
             <br />
-            <span className="text-brand-blue">Estratégicos</span>
+            <span className="text-gradient-blue">Estratégicos</span>
           </motion.h1>
 
           {/* Subheadline */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-xl md:text-2xl text-gray-600 mb-10 max-w-3xl mx-auto"
+            transition={{ duration: 0.6, delay: 0.35, ease: [0.4, 0, 0.2, 1] }}
+            className="text-xl md:text-2xl text-gray-600 mb-12 max-w-3xl mx-auto leading-relaxed"
           >
             Consultoría estratégica y desarrollo de software liderado por un equipo 
-            con más de una década de experiencia. Excelencia técnica con visión de negocio.
+            con más de una década de experiencia. <span className="text-gray-800 font-medium">Excelencia técnica con visión de negocio.</span>
           </motion.p>
 
           {/* CTA Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
+            transition={{ duration: 0.6, delay: 0.45, ease: [0.4, 0, 0.2, 1] }}
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
             <Link
               href="#contact"
-              className="bg-brand-blue text-white px-8 py-4 rounded-lg text-lg font-medium hover:bg-brand-blue/90 transition-all shadow-lg hover:shadow-xl"
+              className="group relative bg-brand-blue text-white px-8 py-4 rounded-xl text-lg font-medium transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] shadow-[0_4px_14px_rgba(0,156,222,0.25)] hover:shadow-[0_6px_20px_rgba(0,156,222,0.35)] hover:-translate-y-0.5"
             >
-              Iniciemos la Conversación
+              <span className="relative z-10">Iniciemos la Conversación</span>
+              <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-brand-blue to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </Link>
             <Link
               href="#capabilities"
-              className="bg-white text-brand-black border-2 border-gray-300 px-8 py-4 rounded-lg text-lg font-medium hover:border-brand-blue hover:text-brand-blue transition-all"
+              className="group bg-white/70 backdrop-blur-sm text-brand-black border border-gray-200 px-8 py-4 rounded-xl text-lg font-medium transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] hover:border-brand-blue/50 hover:bg-white hover:shadow-[0_4px_12px_rgba(0,156,222,0.1)]"
             >
               Ver Capacidades
             </Link>
           </motion.div>
 
           {/* Social Proof Line */}
-          <div className="mt-12 text-sm text-gray-500">
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="mt-16 text-sm text-gray-500 tracking-wide"
+          >
             <p>Socios tecnológicos de empresas líderes en fintech, educación y servicios empresariales</p>
-          </div>
+          </motion.div>
         </div>
       </div>
-
-      {/* Decorative Elements */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-brand-blue/5 rounded-full blur-3xl -z-10"></div>
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-brand-black/5 rounded-full blur-3xl -z-10"></div>
     </section>
   );
 }

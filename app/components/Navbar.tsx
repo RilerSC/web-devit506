@@ -36,7 +36,7 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-200">
+    <nav className="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-xl border-b border-white/20 shadow-[0_1px_3px_rgba(0,0,0,0.05)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo / Brand */}
@@ -53,34 +53,34 @@ export default function Navbar() {
 
           {/* Desktop Navigation Links */}
           <div className="hidden md:flex items-center space-x-8">
-            <Link 
-              href="https://www.devit506.net#capabilities" 
-              className="text-sm font-medium text-gray-700 hover:text-brand-blue transition-colors"
+            <a 
+              href="#capabilities" 
+              className="text-sm font-medium text-gray-700 hover:text-brand-blue transition-colors duration-200"
             >
               Capacidades
-            </Link>
-            <Link 
+            </a>
+            <a 
               href="#projects" 
-              className="text-sm font-medium text-gray-700 hover:text-brand-blue transition-colors"
+              className="text-sm font-medium text-gray-700 hover:text-brand-blue transition-colors duration-200"
             >
               Casos de Éxito
-            </Link>
-            <Link 
-              href="https://www.devit506.net#contact" 
-              className="text-sm font-medium text-gray-700 hover:text-brand-blue transition-colors"
+            </a>
+            <a 
+              href="#contact" 
+              className="text-sm font-medium text-gray-700 hover:text-brand-blue transition-colors duration-200"
             >
               Contacto
-            </Link>
+            </a>
           </div>
 
           {/* Desktop CTA Button */}
           <div className="hidden md:flex items-center">
-            <Link
-              href="https://www.devit506.net#contact"
-              className="bg-brand-blue text-white px-6 py-2 rounded-md text-sm font-medium hover:bg-brand-blue/90 transition-colors"
+            <a
+              href="#contact"
+              className="bg-brand-blue text-white px-6 py-2 rounded-md text-sm font-medium hover:bg-brand-blue/90 transition-colors duration-200"
             >
               Hablemos
-            </Link>
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -141,38 +141,38 @@ export default function Navbar() {
 
           {/* Navigation Links */}
           <nav className="flex-1 px-6 py-8 space-y-1">
-            <Link
+            <a
               href="#capabilities"
               onClick={handleLinkClick}
-              className="block px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg transition-colors font-medium"
+              className="block px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg transition-colors duration-200 font-medium"
             >
               Capacidades
-            </Link>
-            <Link
+            </a>
+            <a
               href="#projects"
               onClick={handleLinkClick}
-              className="block px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg transition-colors font-medium"
+              className="block px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg transition-colors duration-200 font-medium"
             >
               Casos de Éxito
-            </Link>
-            <Link
+            </a>
+            <a
               href="#contact"
               onClick={handleLinkClick}
-              className="block px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg transition-colors font-medium"
+              className="block px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg transition-colors duration-200 font-medium"
             >
               Contacto
-            </Link>
+            </a>
           </nav>
 
           {/* Footer CTA */}
           <div className="p-6 border-t border-gray-700">
-            <Link
+            <a
               href="#contact"
               onClick={handleLinkClick}
-              className="block w-full bg-brand-blue text-white text-center px-6 py-3 rounded-lg font-medium hover:bg-brand-blue/90 transition-colors"
+              className="block w-full bg-brand-blue text-white text-center px-6 py-3 rounded-lg font-medium hover:bg-brand-blue/90 transition-colors duration-200"
             >
               Hablemos
-            </Link>
+            </a>
             <p className="mt-4 text-xs text-gray-500 text-center">
               info@devit506.com
             </p>

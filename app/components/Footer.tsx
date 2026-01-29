@@ -1,4 +1,3 @@
-import Link from "next/link";
 import Image from "next/image";
 
 export default function Footer() {
@@ -29,24 +28,24 @@ export default function Footer() {
             <h3 className="text-white font-semibold mb-4">Servicios</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="#capabilities" className="hover:text-brand-blue transition-colors">
+                <a href="#capabilities" className="hover:text-brand-blue transition-colors duration-200">
                   CTO Externo
-                </Link>
+                </a>
               </li>
               <li>
-                <Link href="#capabilities" className="hover:text-brand-blue transition-colors">
+                <a href="#capabilities" className="hover:text-brand-blue transition-colors duration-200">
                   Desarrollo a Medida
-                </Link>
+                </a>
               </li>
               <li>
-                <Link href="#capabilities" className="hover:text-brand-blue transition-colors">
+                <a href="#capabilities" className="hover:text-brand-blue transition-colors duration-200">
                   Automatización de Procesos
-                </Link>
+                </a>
               </li>
               <li>
-                <Link href="#capabilities" className="hover:text-brand-blue transition-colors">
+                <a href="#capabilities" className="hover:text-brand-blue transition-colors duration-200">
                   Integración de Sistemas
-                </Link>
+                </a>
               </li>
             </ul>
           </div>
@@ -56,12 +55,12 @@ export default function Footer() {
             <h3 className="text-white font-semibold mb-4">Contacto</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="mailto:info@devit506.com" className="hover:text-brand-blue transition-colors">
+                <a href="mailto:jrsolorzano@devit506.com" className="hover:text-brand-blue transition-colors duration-200">
                   jrsolorzano@devit506.com
                 </a>
               </li>
               <li>
-                <a href="https://www.linkedin.com/company/devit506" target="_blank" rel="noopener noreferrer" className="hover:text-brand-blue transition-colors">
+                <a href="https://www.linkedin.com/company/devit506" target="_blank" rel="noopener noreferrer" className="hover:text-brand-blue transition-colors duration-200">
                   LinkedIn
                 </a>
               </li>
@@ -77,12 +76,12 @@ export default function Footer() {
           <div className="flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
             <p>© {currentYear} DEVIT506. All rights reserved.</p>
             <div className="flex space-x-6 mt-4 md:mt-0">
-              <Link href="#" className="hover:text-brand-blue transition-colors">
+              <span className="hover:text-brand-blue transition-colors duration-200 cursor-pointer">
                 Privacy Policy
-              </Link>
-              <Link href="#" className="hover:text-brand-blue transition-colors">
+              </span>
+              <span className="hover:text-brand-blue transition-colors duration-200 cursor-pointer">
                 Terms of Service
-              </Link>
+              </span>
             </div>
           </div>
         </div>
