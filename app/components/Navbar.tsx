@@ -54,19 +54,19 @@ export default function Navbar() {
           {/* Desktop Navigation Links */}
           <div className="hidden md:flex items-center space-x-8">
             <a 
-              href="#capabilities" 
+              href="https://www.devit506.net/#capabilities" 
               className="text-sm font-medium text-gray-700 hover:text-brand-blue transition-colors duration-200"
             >
               Capacidades
             </a>
             <a 
-              href="#projects" 
+              href="https://www.devit506.net/#projects" 
               className="text-sm font-medium text-gray-700 hover:text-brand-blue transition-colors duration-200"
             >
               Casos de Éxito
             </a>
             <a 
-              href="#contact" 
+              href="https://www.devit506.net/#contact" 
               className="text-sm font-medium text-gray-700 hover:text-brand-blue transition-colors duration-200"
             >
               Contacto
@@ -76,7 +76,7 @@ export default function Navbar() {
           {/* Desktop CTA Button */}
           <div className="hidden md:flex items-center">
             <a
-              href="#contact"
+              href="https://www.devit506.net/#contact"
               className="bg-brand-blue text-white px-6 py-2 rounded-md text-sm font-medium hover:bg-brand-blue/90 transition-colors duration-200"
             >
               Hablemos
@@ -142,21 +142,21 @@ export default function Navbar() {
           {/* Navigation Links */}
           <nav className="flex-1 px-6 py-8 space-y-1">
             <a
-              href="#capabilities"
+              href="https://www.devit506.net/#capabilities"
               onClick={handleLinkClick}
               className="block px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg transition-colors duration-200 font-medium"
             >
               Capacidades
             </a>
             <a
-              href="#projects"
+              href="https://www.devit506.net/#projects"
               onClick={handleLinkClick}
               className="block px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg transition-colors duration-200 font-medium"
             >
               Casos de Éxito
             </a>
             <a
-              href="#contact"
+              href="https://www.devit506.net/#contact"
               onClick={handleLinkClick}
               className="block px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg transition-colors duration-200 font-medium"
             >
@@ -167,7 +167,7 @@ export default function Navbar() {
           {/* Footer CTA */}
           <div className="p-6 border-t border-gray-700">
             <a
-              href="#contact"
+              href="https://www.devit506.net/#contact"
               onClick={handleLinkClick}
               className="block w-full bg-brand-blue text-white text-center px-6 py-3 rounded-lg font-medium hover:bg-brand-blue/90 transition-colors duration-200"
             >

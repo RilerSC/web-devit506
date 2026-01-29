@@ -28,22 +28,22 @@ export default function Footer() {
             <h3 className="text-white font-semibold mb-4">Servicios</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="#capabilities" className="hover:text-brand-blue transition-colors duration-200">
+                <a href="https://www.devit506.net/#capabilities" className="hover:text-brand-blue transition-colors duration-200">
                   CTO Externo
                 </a>
               </li>
               <li>
-                <a href="#capabilities" className="hover:text-brand-blue transition-colors duration-200">
+                <a href="https://www.devit506.net/#capabilities" className="hover:text-brand-blue transition-colors duration-200">
                   Desarrollo a Medida
                 </a>
               </li>
               <li>
-                <a href="#capabilities" className="hover:text-brand-blue transition-colors duration-200">
+                <a href="https://www.devit506.net/#capabilities" className="hover:text-brand-blue transition-colors duration-200">
                   Automatización de Procesos
                 </a>
               </li>
               <li>
-                <a href="#capabilities" className="hover:text-brand-blue transition-colors duration-200">
+                <a href="https://www.devit506.net/#capabilities" className="hover:text-brand-blue transition-colors duration-200">
                   Integración de Sistemas
                 </a>
               </li>
