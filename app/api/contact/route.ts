@@ -12,6 +12,8 @@ const contactSchema = z.object({
   email: z.string().email("Email inválido"),
   countryCode: z.string().optional(), // Código de país (ej: "CR")
   phone: z.string().optional(), // Número de teléfono (opcional)
+  contactPreference: z.enum(["email", "phone"]).optional(), // Preferencia de contacto
+  language: z.enum(["es", "en"]).optional(), // Idioma preferido
   challenge: z.string().min(10, "Por favor describe tu desafío con más detalle (mínimo 10 caracteres)"),
   website_url: z.string().optional(), // Honeypot anti-spam (debe estar vacío)
 });
@@ -101,11 +103,15 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const { name, company, email, countryCode, phone, challenge, website_url } = validationResult.data;
+    const { name, company, email, countryCode, phone, contactPreference, language, challenge, website_url } = validationResult.data;
 
     // Formatear teléfono completo con código de área
     const dialCode = countryCode ? countryDialCodes[countryCode] || "" : "";
     const fullPhone = phone ? `${dialCode} ${phone}` : "No proporcionado";
+    
+    // Formatear preferencias
+    const contactMethodText = contactPreference === "phone" ? "📞 Teléfono" : "📧 Correo electrónico";
+    const languageText = language === "en" ? "🇺🇸 English" : "🇪🇸 Español";
 
     // HONEYPOT ANTI-SPAM: Si el campo website_url contiene algún valor, es un bot
     if (website_url && website_url.trim() !== "") {
@@ -140,6 +146,7 @@ export async function POST(request: NextRequest) {
     console.log(`   Contacto: ${name} (${company})`);
     console.log(`   Email cliente: ${email}`);
     console.log(`   Teléfono: ${fullPhone}`);
+    console.log(`   Preferencia: ${contactMethodText} | Idioma: ${languageText}`);
 
     // Obtener cliente de Graph API
     const graphClient = getGraphClient();
@@ -281,6 +288,19 @@ export async function POST(request: NextRequest) {
       <div class="field">
         <div class="label">Teléfono</div>
         <div class="value">${fullPhone}</div>
+      </div>
+      
+      <div class="divider"></div>
+      
+      <div style="display: flex; gap: 40px; margin-bottom: 25px;">
+        <div class="field" style="flex: 1; margin-bottom: 0;">
+          <div class="label">Contactar por</div>
+          <div class="value">${contactMethodText}</div>
+        </div>
+        <div class="field" style="flex: 1; margin-bottom: 0;">
+          <div class="label">Idioma preferido</div>
+          <div class="value">${languageText}</div>
+        </div>
       </div>
       
       <div class="divider"></div>

@@ -209,6 +209,8 @@ export default function ContactSection() {
     email: "",
     countryCode: "CR", // Costa Rica por defecto
     phone: "",
+    contactPreference: "email", // email o phone
+    language: "es", // es o en
     challenge: "",
     website_url: "", // Honeypot anti-spam (campo oculto)
   });
@@ -270,6 +272,8 @@ export default function ContactSection() {
           email: "",
           countryCode: "CR",
           phone: "",
+          contactPreference: "email",
+          language: "es",
           challenge: "",
           website_url: "", // Limpiar honeypot
         });
@@ -446,6 +450,79 @@ export default function ContactSection() {
               <p className="mt-1.5 text-xs text-gray-500">
                 Opcional - Te contactaremos por este medio si es necesario
               </p>
+            </div>
+
+            {/* Contact Preferences Row */}
+            <div className="mb-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {/* Contact Method Preference */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  ¿Cómo prefieres que te contactemos?
+                </label>
+                <div className="flex gap-3">
+                  <button
+                    type="button"
+                    onClick={() => setFormData({ ...formData, contactPreference: "email" })}
+                    className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-lg border transition-all duration-200 ${
+                      formData.contactPreference === "email"
+                        ? "border-brand-blue bg-brand-blue/5 text-brand-blue"
+                        : "border-gray-300 bg-white text-gray-600 hover:border-gray-400"
+                    }`}
+                  >
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                    <span className="font-medium text-sm">Correo</span>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setFormData({ ...formData, contactPreference: "phone" })}
+                    className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-lg border transition-all duration-200 ${
+                      formData.contactPreference === "phone"
+                        ? "border-brand-blue bg-brand-blue/5 text-brand-blue"
+                        : "border-gray-300 bg-white text-gray-600 hover:border-gray-400"
+                    }`}
+                  >
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                    </svg>
+                    <span className="font-medium text-sm">Teléfono</span>
+                  </button>
+                </div>
+              </div>
+
+              {/* Language Preference */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Idioma de preferencia
+                </label>
+                <div className="flex gap-3">
+                  <button
+                    type="button"
+                    onClick={() => setFormData({ ...formData, language: "es" })}
+                    className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-lg border transition-all duration-200 ${
+                      formData.language === "es"
+                        ? "border-brand-blue bg-brand-blue/5 text-brand-blue"
+                        : "border-gray-300 bg-white text-gray-600 hover:border-gray-400"
+                    }`}
+                  >
+                    <span className="text-lg">🇪🇸</span>
+                    <span className="font-medium text-sm">Español</span>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setFormData({ ...formData, language: "en" })}
+                    className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-lg border transition-all duration-200 ${
+                      formData.language === "en"
+                        ? "border-brand-blue bg-brand-blue/5 text-brand-blue"
+                        : "border-gray-300 bg-white text-gray-600 hover:border-gray-400"
+                    }`}
+                  >
+                    <span className="text-lg">🇺🇸</span>
+                    <span className="font-medium text-sm">English</span>
+                  </button>
+                </div>
+              </div>
             </div>
 
             {/* Honeypot Field (Anti-Spam) */}
