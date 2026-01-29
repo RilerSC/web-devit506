@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 export default function Hero() {
   return (
-    <section className="relative mesh-gradient-hero py-20 md:py-32 overflow-hidden">
+    <section className="relative mesh-gradient-hero py-14 md:py-20 overflow-hidden">
       {/* Premium Mesh Gradient Orbs */}
       <div className="absolute top-[-20%] right-[-10%] w-[600px] h-[600px] bg-brand-blue/10 rounded-full blur-[120px] -z-10"></div>
       <div className="absolute top-[20%] left-[-15%] w-[500px] h-[500px] bg-violet-500/8 rounded-full blur-[100px] -z-10"></div>
@@ -18,7 +18,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1, ease: [0.4, 0, 0.2, 1] }}
-            className="inline-flex items-center space-x-2 bg-white/60 backdrop-blur-sm text-brand-blue px-5 py-2.5 rounded-full text-sm font-medium mb-8 border border-brand-blue/20 shadow-[0_2px_8px_rgba(0,156,222,0.1)]"
+            className="inline-flex items-center space-x-2 bg-white/60 backdrop-blur-sm text-brand-blue px-5 py-2 rounded-full text-sm font-medium mb-5 border border-brand-blue/20 shadow-[0_2px_8px_rgba(0,156,222,0.1)]"
           >
             <span className="w-2 h-2 bg-brand-blue rounded-full animate-pulse"></span>
             <span className="tracking-wide">Servicios de CTO Externo desde 2012</span>
@@ -29,7 +29,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2, ease: [0.4, 0, 0.2, 1] }}
-            className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-[1.1] tracking-tight"
+            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-[1.1] tracking-tight"
           >
             <span className="text-gradient-metallic">Socios Tecnológicos</span>
             <br />
@@ -41,7 +41,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.35, ease: [0.4, 0, 0.2, 1] }}
-            className="text-xl md:text-2xl text-gray-600 mb-12 max-w-3xl mx-auto leading-relaxed"
+            className="text-lg md:text-xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed"
           >
             Consultoría estratégica y desarrollo de software liderado por un equipo 
             con más de una década de experiencia. <span className="text-gray-800 font-medium">Excelencia técnica con visión de negocio.</span>
@@ -74,7 +74,7 @@ export default function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="mt-16 text-sm text-gray-500 tracking-wide"
+            className="mt-10 text-sm text-gray-500 tracking-wide"
           >
             <p>Socios tecnológicos de empresas líderes en fintech, educación y servicios empresariales</p>
           </motion.div>

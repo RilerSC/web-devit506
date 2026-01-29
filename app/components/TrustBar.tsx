@@ -72,9 +72,9 @@ function KPICard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6, delay }}
-      className="flex flex-col items-center justify-center p-6"
+      className="flex flex-col items-center justify-center p-4"
     >
-      <div className="text-4xl md:text-5xl lg:text-6xl font-bold mb-2" style={{ color: "#009CDE" }}>
+      <div className="text-3xl md:text-4xl lg:text-5xl font-bold mb-1" style={{ color: "#009CDE" }}>
         <AnimatedCounter value={value} suffix={suffix} decimals={decimals} />
       </div>
       <p className="text-sm md:text-base text-gray-500 text-center font-medium">
@@ -105,7 +105,7 @@ function ClientLogo({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay }}
-      className="flex items-center justify-center p-6 md:p-8 h-32 md:h-36 lg:h-44"
+      className="flex items-center justify-center p-4 md:p-5 h-24 md:h-28 lg:h-32"
     >
       <motion.div
         className="relative w-full h-full opacity-80"
@@ -178,7 +178,7 @@ export default function TrustBar() {
   ];
 
   return (
-    <section className="bg-white border-y border-gray-200 py-12">
+    <section className="bg-white border-y border-gray-200 py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Sección de KPIs Animados */}
         <div>
@@ -187,12 +187,12 @@ export default function TrustBar() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="text-center text-lg md:text-xl font-semibold text-gray-800 mb-8"
+            className="text-center text-base md:text-lg font-semibold text-gray-800 mb-5"
           >
             Nuestra Trayectoria en Números
           </motion.h3>
           
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
             {kpis.map((kpi, index) => (
               <KPICard
                 key={index}
@@ -210,25 +210,25 @@ export default function TrustBar() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.5 }}
-            className="text-center text-xs md:text-sm text-gray-400 mt-6"
+            className="text-center text-xs md:text-sm text-gray-400 mt-4"
           >
             Experiencia desde 2012 • Soluciones robustas y confiables
           </motion.p>
         </div>
 
         {/* Sección de Logos de Clientes */}
-        <div className="mt-16 pt-16 border-t border-gray-200">
+        <div className="mt-8 pt-8 border-t border-gray-200">
           <motion.h3
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="text-center text-lg md:text-xl font-semibold text-gray-800 mb-8"
+            className="text-center text-base md:text-lg font-semibold text-gray-800 mb-5"
           >
             Ellos confían en nosotros
           </motion.h3>
           
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 md:gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-6">
             {clients.map((client, index) => (
               <ClientLogo
                 key={index}

@@ -32,23 +32,23 @@ export default function FeaturedProjects() {
   ];
 
   return (
-    <section id="projects" className="relative py-24 bg-white overflow-hidden">
+    <section id="projects" className="relative py-12 md:py-16 bg-white overflow-hidden">
       {/* Subtle background gradient */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent"></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div 
-          className="text-center max-w-3xl mx-auto mb-16"
+          className="text-center max-w-3xl mx-auto mb-8 md:mb-10"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.7, ease: [0.4, 0, 0.2, 1] }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-brand-black mb-4 tracking-tight">
+          <h2 className="text-3xl md:text-4xl font-bold text-brand-black mb-3 tracking-tight">
             Nuestros más recientes casos de Éxito
           </h2>
-          <p className="text-xl text-gray-600 leading-relaxed">
+          <p className="text-lg text-gray-600 leading-relaxed">
             Impacto real en organizaciones líderes. Complejidad técnica resuelta con claridad estratégica.
           </p>
         </motion.div>
@@ -66,7 +66,7 @@ export default function FeaturedProjects() {
                 y: -4,
                 transition: { duration: 0.3, ease: [0.4, 0, 0.2, 1] }
               }}
-              className="group relative bg-gradient-to-br from-gray-50/80 to-white rounded-2xl p-8 
+              className="group relative bg-gradient-to-br from-gray-50/80 to-white rounded-2xl p-5 md:p-6 
                 border border-gray-100 shadow-[0_1px_3px_rgba(0,0,0,0.04)]
                 hover:shadow-[0_20px_40px_-12px_rgba(0,156,222,0.12),0_0_0_1px_rgba(0,156,222,0.1)]
                 hover:border-brand-blue/20
@@ -82,7 +82,7 @@ export default function FeaturedProjects() {
               <div className="relative z-10 flex flex-col md:flex-row md:items-start md:justify-between gap-6">
                 {/* Content */}
                 <div className="flex-1">
-                  <div className="flex items-center gap-3 mb-3">
+                  <div className="flex items-center gap-2 mb-2">
                     <span className="text-xs font-semibold text-brand-blue uppercase tracking-wider font-mono">
                       {project.category}
                     </span>
@@ -90,11 +90,11 @@ export default function FeaturedProjects() {
                     <span className="text-sm text-gray-500 font-mono">{project.metrics}</span>
                   </div>
                   
-                  <h3 className="text-2xl font-bold text-brand-black mb-3 tracking-tight group-hover:text-brand-blue/90 transition-colors duration-300">
+                  <h3 className="text-xl font-bold text-brand-black mb-2 tracking-tight group-hover:text-brand-blue/90 transition-colors duration-300">
                     {project.title}
                   </h3>
                   
-                  <p className="text-gray-600 mb-5 leading-relaxed">
+                  <p className="text-gray-600 mb-3 leading-relaxed text-sm md:text-base">
                     {project.description}
                   </p>
 
@@ -140,13 +140,13 @@ export default function FeaturedProjects() {
 
         {/* Footer CTA */}
         <motion.div 
-          className="mt-16 text-center"
+          className="mt-10 text-center"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
         >
-          <p className="text-gray-600 mb-5">
+          <p className="text-gray-600 mb-4">
             ¿Listo para conversar sobre tus desafíos tecnológicos?
           </p>
           <a

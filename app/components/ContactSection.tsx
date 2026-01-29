@@ -289,24 +289,24 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-20 bg-gray-50">
+    <section id="contact" className="py-12 md:py-14 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-brand-black mb-4">
+        <div className="text-center max-w-3xl mx-auto mb-8">
+          <h2 className="text-3xl md:text-4xl font-bold text-brand-black mb-3">
             Iniciemos la Conversación
           </h2>
-          <p className="text-xl text-gray-600">
+          <p className="text-lg text-gray-600">
             Cuéntanos sobre tu desafío tecnológico. Respondemos en menos de 24 horas.
           </p>
         </div>
 
         {/* Contact Form */}
         <div className="max-w-2xl mx-auto">
-          <form onSubmit={handleSubmit} className="bg-white rounded-xl p-8 shadow-lg border border-gray-200">
+          <form onSubmit={handleSubmit} className="bg-white rounded-xl p-5 md:p-6 shadow-lg border border-gray-200">
             {/* Name Field */}
-            <div className="mb-6">
-              <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+            <div className="mb-4">
+              <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1.5">
                 Nombre Completo *
               </label>
               <input
@@ -322,8 +322,8 @@ export default function ContactSection() {
             </div>
 
             {/* Company Field */}
-            <div className="mb-6">
-              <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-2">
+            <div className="mb-4">
+              <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-1.5">
                 Empresa *
               </label>
               <input
@@ -339,8 +339,8 @@ export default function ContactSection() {
             </div>
 
             {/* Email Field */}
-            <div className="mb-6">
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+            <div className="mb-4">
+              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1.5">
                 Email Corporativo *
               </label>
               <input
@@ -356,8 +356,8 @@ export default function ContactSection() {
             </div>
 
             {/* Phone Field with Country Selector */}
-            <div className="mb-6">
-              <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+            <div className="mb-4">
+              <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1.5">
                 Teléfono
               </label>
               <div className="flex">
@@ -453,13 +453,13 @@ export default function ContactSection() {
             </div>
 
             {/* Contact Preferences Row */}
-            <div className="mb-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="mb-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
               {/* Contact Method Preference */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-700 mb-1.5">
                   ¿Cómo prefieres que te contactemos?
                 </label>
-                <div className="flex gap-3">
+                <div className="flex gap-2">
                   <button
                     type="button"
                     onClick={() => setFormData({ ...formData, contactPreference: "email" })}
@@ -493,10 +493,10 @@ export default function ContactSection() {
 
               {/* Language Preference */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-700 mb-1.5">
                   Idioma de preferencia
                 </label>
-                <div className="flex gap-3">
+                <div className="flex gap-2">
                   <button
                     type="button"
                     onClick={() => setFormData({ ...formData, language: "es" })}
@@ -541,8 +541,8 @@ export default function ContactSection() {
             </div>
 
             {/* Challenge Field */}
-            <div className="mb-6">
-              <label htmlFor="challenge" className="block text-sm font-medium text-gray-700 mb-2">
+            <div className="mb-4">
+              <label htmlFor="challenge" className="block text-sm font-medium text-gray-700 mb-1.5">
                 Desafío Tecnológico *
               </label>
               <textarea
@@ -551,7 +551,7 @@ export default function ContactSection() {
                 required
                 value={formData.challenge}
                 onChange={handleChange}
-                rows={5}
+                rows={4}
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-brand-blue transition-colors resize-none text-gray-900 bg-white placeholder:text-gray-400"
                 placeholder="Cuéntanos sobre tu proyecto, desafío tecnológico o necesidad de consultoría estratégica..."
               />
@@ -607,7 +607,7 @@ export default function ContactSection() {
           </form>
 
           {/* Alternative Contact */}
-          <div className="mt-8 text-center">
+          <div className="mt-6 text-center">
             <p className="text-gray-600 mb-2">¿Prefieres escribirnos directamente?</p>
             <a 
               href="mailto:info@devit506.com" 

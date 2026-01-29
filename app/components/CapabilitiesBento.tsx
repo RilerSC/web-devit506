@@ -49,7 +49,7 @@ export default function CapabilitiesBento() {
   ];
 
   return (
-    <section id="capabilities" className="relative py-24 overflow-hidden bg-gradient-to-b from-gray-50 via-white to-gray-50">
+    <section id="capabilities" className="relative py-12 md:py-16 overflow-hidden bg-gradient-to-b from-gray-50 via-white to-gray-50">
       {/* Mesh Gradient Orbs - más visibles */}
       <div className="absolute top-[5%] left-[-10%] w-[500px] h-[500px] bg-brand-blue/15 rounded-full blur-[120px] -z-10"></div>
       <div className="absolute top-[40%] right-[-15%] w-[600px] h-[600px] bg-violet-500/10 rounded-full blur-[140px] -z-10"></div>
@@ -58,19 +58,19 @@ export default function CapabilitiesBento() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div 
-          className="text-center max-w-3xl mx-auto mb-16"
+          className="text-center max-w-3xl mx-auto mb-8 md:mb-10"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.7, ease: [0.4, 0, 0.2, 1] }}
         >
-          <span className="inline-block px-4 py-1.5 mb-4 text-sm font-semibold text-brand-blue bg-brand-blue/10 rounded-full">
+          <span className="inline-block px-3 py-1 mb-3 text-sm font-semibold text-brand-blue bg-brand-blue/10 rounded-full">
             Nuestros Servicios
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold text-brand-black mb-4 tracking-tight">
+          <h2 className="text-3xl md:text-4xl font-bold text-brand-black mb-3 tracking-tight">
             Capacidades Core
           </h2>
-          <p className="text-xl text-gray-600 leading-relaxed">
+          <p className="text-lg text-gray-600 leading-relaxed">
             Excelencia técnica en todo el stack. Consultoría estratégica combinada con ingeniería de software de primer nivel.
           </p>
         </motion.div>
@@ -89,7 +89,7 @@ export default function CapabilitiesBento() {
                 transition: { duration: 0.3, ease: [0.4, 0, 0.2, 1] }
               }}
               className={`
-                group relative bg-white rounded-2xl p-8 
+                group relative bg-white rounded-2xl p-5 md:p-6 
                 border border-gray-100 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.1)]
                 hover:shadow-[0_20px_50px_-12px_rgba(0,156,222,0.25)]
                 hover:border-brand-blue/40
@@ -109,10 +109,10 @@ export default function CapabilitiesBento() {
               
               <div className="relative z-10">
                 {/* Icon with colored background */}
-                <div className={`inline-flex items-center justify-center w-14 h-14 mb-5 rounded-xl bg-gradient-to-br ${capability.accent} bg-opacity-10 shadow-sm`}>
-                  <span className="text-3xl filter drop-shadow-sm">{capability.icon}</span>
+                <div className={`inline-flex items-center justify-center w-12 h-12 mb-3 rounded-xl bg-gradient-to-br ${capability.accent} bg-opacity-10 shadow-sm`}>
+                  <span className="text-2xl filter drop-shadow-sm">{capability.icon}</span>
                 </div>
-                <h3 className="text-xl font-bold text-brand-black mb-3 tracking-tight group-hover:text-brand-blue transition-colors duration-300">
+                <h3 className="text-lg font-bold text-brand-black mb-2 tracking-tight group-hover:text-brand-blue transition-colors duration-300">
                   {capability.title}
                 </h3>
                 <p className="text-gray-600 leading-relaxed">
@@ -125,7 +125,7 @@ export default function CapabilitiesBento() {
 
         {/* CTA */}
         <motion.div 
-          className="mt-14 text-center"
+          className="mt-8 text-center"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
