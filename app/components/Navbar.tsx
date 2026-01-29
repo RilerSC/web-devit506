@@ -54,19 +54,19 @@ export default function Navbar() {
           {/* Desktop Navigation Links */}
           <div className="hidden md:flex items-center space-x-8">
             <a 
-              href="https://www.devit506.net/#capabilities" 
+              href="/#capabilities" 
               className="text-sm font-medium text-gray-700 hover:text-brand-blue transition-colors duration-200"
             >
               Capacidades
             </a>
             <a 
-              href="https://www.devit506.net/#projects" 
+              href="/#projects" 
               className="text-sm font-medium text-gray-700 hover:text-brand-blue transition-colors duration-200"
             >
               Casos de Éxito
             </a>
             <a 
-              href="https://www.devit506.net/#contact" 
+              href="/#contact" 
               className="text-sm font-medium text-gray-700 hover:text-brand-blue transition-colors duration-200"
             >
               Contacto
@@ -76,7 +76,7 @@ export default function Navbar() {
           {/* Desktop CTA Button */}
           <div className="hidden md:flex items-center">
             <a
-              href="https://www.devit506.net/#contact"
+              href="/#contact"
               className="bg-brand-blue text-white px-6 py-2 rounded-md text-sm font-medium hover:bg-brand-blue/90 transition-colors duration-200"
             >
               Hablemos
