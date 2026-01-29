@@ -8,45 +8,52 @@ export default function CapabilitiesBento() {
       title: "Consultoría C-Suite",
       description: "Servicios de CTO Externo. Gestión de presupuestos de TI, planificación estratégica tecnológica y liderazgo ejecutivo para organizaciones de alto impacto.",
       icon: "🎯",
-      size: "large"
+      size: "large",
+      accent: "from-brand-blue to-cyan-400"
     },
     {
       title: "Desarrollo de Software a Medida",
       description: "Soluciones empresariales con Next.js, React, TypeScript, Python, Azure, HTML5, etc. Arquitectura escalable y código de calidad industrial.",
       icon: "⚙️",
-      size: "medium"
+      size: "medium",
+      accent: "from-violet-500 to-purple-400"
     },
     {
       title: "Automatización de Procesos",
       description: "Automatización de flujos de negocio críticos. Reducción de tareas manuales, optimización operativa y eficiencia empresarial.",
       icon: "🔄",
-      size: "medium"
+      size: "medium",
+      accent: "from-emerald-500 to-teal-400"
     },
     {
       title: "Integración de Ecosistemas",
       description: "Conectores a medida entre ERP, CRM y plataformas de negocio. Sincronización de datos y unificación de sistemas legacy.",
       icon: "🔗",
-      size: "small"
+      size: "small",
+      accent: "from-orange-500 to-amber-400"
     },
     {
       title: "Cloud Infrastructure",
       description: "Infraestructura en Azure. CI/CD pipelines, DevOps, monitoreo y optimización de costos en la nube.",
       icon: "☁️",
-      size: "small"
+      size: "small",
+      accent: "from-sky-500 to-blue-400"
     },
     {
       title: "Planificación Estratégica TI",
       description: "Roadmaps tecnológicos, evaluación de stack, due diligence técnica y definición de arquitectura empresarial.",
       icon: "📋",
-      size: "small"
+      size: "small",
+      accent: "from-rose-500 to-pink-400"
     }
   ];
 
   return (
-    <section id="capabilities" className="relative py-24 mesh-gradient-section overflow-hidden">
-      {/* Subtle Mesh Gradient Orbs */}
-      <div className="absolute top-[10%] left-[-5%] w-[400px] h-[400px] bg-brand-blue/6 rounded-full blur-[100px] -z-10"></div>
-      <div className="absolute bottom-[20%] right-[-10%] w-[500px] h-[500px] bg-violet-500/4 rounded-full blur-[120px] -z-10"></div>
+    <section id="capabilities" className="relative py-24 overflow-hidden bg-gradient-to-b from-gray-50 via-white to-gray-50">
+      {/* Mesh Gradient Orbs - más visibles */}
+      <div className="absolute top-[5%] left-[-10%] w-[500px] h-[500px] bg-brand-blue/15 rounded-full blur-[120px] -z-10"></div>
+      <div className="absolute top-[40%] right-[-15%] w-[600px] h-[600px] bg-violet-500/10 rounded-full blur-[140px] -z-10"></div>
+      <div className="absolute bottom-[10%] left-[30%] w-[400px] h-[400px] bg-cyan-400/10 rounded-full blur-[100px] -z-10"></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
@@ -57,6 +64,9 @@ export default function CapabilitiesBento() {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.7, ease: [0.4, 0, 0.2, 1] }}
         >
+          <span className="inline-block px-4 py-1.5 mb-4 text-sm font-semibold text-brand-blue bg-brand-blue/10 rounded-full">
+            Nuestros Servicios
+          </span>
           <h2 className="text-4xl md:text-5xl font-bold text-brand-black mb-4 tracking-tight">
             Capacidades Core
           </h2>
@@ -75,29 +85,34 @@ export default function CapabilitiesBento() {
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, delay: index * 0.08, ease: [0.4, 0, 0.2, 1] }}
               whileHover={{ 
-                y: -6,
+                y: -8,
                 transition: { duration: 0.3, ease: [0.4, 0, 0.2, 1] }
               }}
               className={`
-                group relative bg-white/70 backdrop-blur-sm rounded-2xl p-8 
-                border border-white/60 shadow-[0_1px_3px_rgba(0,0,0,0.05),inset_0_1px_0_rgba(255,255,255,0.6)]
-                hover:bg-white hover:shadow-[0_20px_40px_-12px_rgba(0,156,222,0.15),0_0_20px_rgba(0,156,222,0.08)]
-                hover:border-brand-blue/30
+                group relative bg-white rounded-2xl p-8 
+                border border-gray-100 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.1)]
+                hover:shadow-[0_20px_50px_-12px_rgba(0,156,222,0.25)]
+                hover:border-brand-blue/40
                 transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)]
+                overflow-hidden
                 ${capability.size === 'large' ? 'md:col-span-2 lg:col-span-2' : ''}
                 ${capability.size === 'medium' ? 'md:col-span-1' : ''}
               `}
             >
-              {/* Gradient border overlay on hover */}
-              <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-                style={{
-                  background: 'linear-gradient(135deg, rgba(0,156,222,0.1) 0%, transparent 50%, rgba(139,92,246,0.05) 100%)'
-                }}
+              {/* Top accent bar */}
+              <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${capability.accent} opacity-80 group-hover:opacity-100 transition-opacity`} />
+              
+              {/* Gradient glow on hover */}
+              <div 
+                className={`absolute -top-20 -right-20 w-40 h-40 bg-gradient-to-br ${capability.accent} opacity-0 group-hover:opacity-20 rounded-full blur-3xl transition-opacity duration-500`}
               />
               
               <div className="relative z-10">
-                <div className="text-4xl mb-4 transform group-hover:scale-110 transition-transform duration-300">{capability.icon}</div>
-                <h3 className="text-xl font-bold text-brand-black mb-3 tracking-tight">
+                {/* Icon with colored background */}
+                <div className={`inline-flex items-center justify-center w-14 h-14 mb-5 rounded-xl bg-gradient-to-br ${capability.accent} bg-opacity-10 shadow-sm`}>
+                  <span className="text-3xl filter drop-shadow-sm">{capability.icon}</span>
+                </div>
+                <h3 className="text-xl font-bold text-brand-black mb-3 tracking-tight group-hover:text-brand-blue transition-colors duration-300">
                   {capability.title}
                 </h3>
                 <p className="text-gray-600 leading-relaxed">
