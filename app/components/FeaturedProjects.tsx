@@ -1,33 +1,24 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Link from "next/link";
+import { Link } from "@/navigation";
+import { useTranslations } from "next-intl";
 
 export default function FeaturedProjects() {
+  const t = useTranslations("projects");
+
   const projects = [
     {
-      title: "Coopebanacio R.L. — Marketplace Transaccional Cooperativo",
-      category: "E-commerce / Fintech",
-      description: "Ecosistema digital para 150,000 asociados con arquitectura Zero-Trust y motor geoespacial. Proyectado para generar $500K+ en nuevos ingresos digitales.",
       tags: ["Next.js 14", "Azure", "PostGIS", "Fintech"],
-      metrics: "95% Reducción de Fraude | <1.2s Load Time",
-      link: "https://www.devit506.net/proyectos/marketplace-coopebanacio"
+      link: "/proyectos/marketplace-coopebanacio"
     },
     {
-      title: "Universidad FUNDEPOS — Observatorio de Sostenibilidad",
-      category: "Data & Sostenibilidad",
-      description: "Plataforma de inteligencia para el monitoreo de indicadores de desarrollo sostenible. Arquitectura server-first optimizada para alta disponibilidad y escalabilidad hacia Big Data.",
       tags: ["Next.js 15", "React 19", "Data Intelligence", "Education"],
-      metrics: "55% Menos JS en Cliente | Azure Ready",
-      link: "https://www.devit506.net/proyectos/observatorio-sostenibilidad"
+      link: "/proyectos/observatorio-sostenibilidad"
     },
     {
-      title: "Integración HubSpot — CODEAS ERP",
-      category: "Integración de Sistemas",
-      description: "Conector a medida entre HubSpot CRM y ERP CODEAS (MS SQL) para optimización del flujo comercial. Sincronización bidireccional de clientes, oportunidades y pipeline.",
       tags: ["Python", "MS SQL", "HubSpot API", "REST API", "ETL"],
-      metrics: "Sincronización en tiempo real de 10K+ registros",
-      link: "https://www.devit506.net/proyectos/integracion-hubspot-codeas"
+      link: "/proyectos/integracion-hubspot-codeas"
     }
   ];
 
@@ -46,10 +37,10 @@ export default function FeaturedProjects() {
           transition={{ duration: 0.7, ease: [0.4, 0, 0.2, 1] }}
         >
           <h2 className="text-3xl md:text-4xl font-bold text-brand-black mb-3 tracking-tight">
-            Nuestros más recientes casos de Éxito
+            {t("title")}
           </h2>
           <p className="text-lg text-gray-600 leading-relaxed">
-            Impacto real en organizaciones líderes. Complejidad técnica resuelta con claridad estratégica.
+            {t("subtitle")}
           </p>
         </motion.div>
 
@@ -84,18 +75,18 @@ export default function FeaturedProjects() {
                 <div className="flex-1">
                   <div className="flex items-center gap-2 mb-2">
                     <span className="text-xs font-semibold text-brand-blue uppercase tracking-wider font-mono">
-                      {project.category}
+                      {t(`items.${index}.category`)}
                     </span>
                     <span className="text-gray-300">•</span>
-                    <span className="text-sm text-gray-500 font-mono">{project.metrics}</span>
+                    <span className="text-sm text-gray-500 font-mono">{t(`items.${index}.metrics`)}</span>
                   </div>
                   
                   <h3 className="text-xl font-bold text-brand-black mb-2 tracking-tight group-hover:text-brand-blue/90 transition-colors duration-300">
-                    {project.title}
+                    {t(`items.${index}.title`)}
                   </h3>
                   
                   <p className="text-gray-600 mb-3 leading-relaxed text-sm md:text-base">
-                    {project.description}
+                    {t(`items.${index}.description`)}
                   </p>
 
                   {/* Tags */}
@@ -119,14 +110,14 @@ export default function FeaturedProjects() {
                       href={project.link}
                       className="group/link inline-flex items-center text-brand-blue font-medium hover:text-brand-blue/80 transition-all duration-300"
                     >
-                      Ver Caso
+                      {t("viewCase")}
                       <svg className="ml-2 w-5 h-5 transform group-hover/link:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                       </svg>
                     </Link>
                   ) : (
                     <span className="text-gray-400 font-medium flex items-center cursor-not-allowed">
-                      Próximamente
+                      {t("comingSoon")}
                       <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>
@@ -147,7 +138,7 @@ export default function FeaturedProjects() {
           transition={{ duration: 0.6, delay: 0.3 }}
         >
           <p className="text-gray-600 mb-4">
-            ¿Listo para conversar sobre tus desafíos tecnológicos?
+            {t("ctaText")}
           </p>
           <a
             href="#contact"
@@ -155,7 +146,7 @@ export default function FeaturedProjects() {
               shadow-[0_4px_14px_rgba(0,156,222,0.25)] hover:shadow-[0_6px_20px_rgba(0,156,222,0.35)]
               hover:-translate-y-0.5 transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)]"
           >
-            <span className="relative z-10">Agenda una Consultoría</span>
+            <span className="relative z-10">{t("ctaButton")}</span>
             <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-brand-blue to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
           </a>
         </motion.div>

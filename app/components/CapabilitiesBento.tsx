@@ -1,47 +1,38 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 export default function CapabilitiesBento() {
+  const t = useTranslations("capabilities");
+
   const capabilities = [
     {
-      title: "Consultoría C-Suite",
-      description: "Servicios de CTO Externo. Gestión de presupuestos de TI, planificación estratégica tecnológica y liderazgo ejecutivo para organizaciones de alto impacto.",
       icon: "🎯",
       size: "large",
       accent: "from-brand-blue to-cyan-400"
     },
     {
-      title: "Desarrollo de Software a Medida",
-      description: "Soluciones empresariales con Next.js, React, TypeScript, Python, Azure, HTML5, etc. Arquitectura escalable y código de calidad industrial.",
       icon: "⚙️",
       size: "medium",
       accent: "from-violet-500 to-purple-400"
     },
     {
-      title: "Automatización de Procesos",
-      description: "Automatización de flujos de negocio críticos. Reducción de tareas manuales, optimización operativa y eficiencia empresarial.",
       icon: "🔄",
       size: "medium",
       accent: "from-emerald-500 to-teal-400"
     },
     {
-      title: "Integración de Ecosistemas",
-      description: "Conectores a medida entre ERP, CRM y plataformas de negocio. Sincronización de datos y unificación de sistemas legacy.",
       icon: "🔗",
       size: "small",
       accent: "from-orange-500 to-amber-400"
     },
     {
-      title: "Cloud Infrastructure",
-      description: "Infraestructura en Azure. CI/CD pipelines, DevOps, monitoreo y optimización de costos en la nube.",
       icon: "☁️",
       size: "small",
       accent: "from-sky-500 to-blue-400"
     },
     {
-      title: "Planificación Estratégica TI",
-      description: "Roadmaps tecnológicos, evaluación de stack, due diligence técnica y definición de arquitectura empresarial.",
       icon: "📋",
       size: "small",
       accent: "from-rose-500 to-pink-400"
@@ -65,13 +56,13 @@ export default function CapabilitiesBento() {
           transition={{ duration: 0.7, ease: [0.4, 0, 0.2, 1] }}
         >
           <span className="inline-block px-3 py-1 mb-3 text-sm font-semibold text-brand-blue bg-brand-blue/10 rounded-full">
-            Nuestros Servicios
+            {t("badge")}
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-brand-black mb-3 tracking-tight">
-            Capacidades Core
+            {t("title")}
           </h2>
           <p className="text-lg text-gray-600 leading-relaxed">
-            Excelencia técnica en todo el stack. Consultoría estratégica combinada con ingeniería de software de primer nivel.
+            {t("subtitle")}
           </p>
         </motion.div>
 
@@ -113,10 +104,10 @@ export default function CapabilitiesBento() {
                   <span className="text-2xl filter drop-shadow-sm">{capability.icon}</span>
                 </div>
                 <h3 className="text-lg font-bold text-brand-black mb-2 tracking-tight group-hover:text-brand-blue transition-colors duration-300">
-                  {capability.title}
+                  {t(`items.${index}.title`)}
                 </h3>
                 <p className="text-gray-600 leading-relaxed">
-                  {capability.description}
+                  {t(`items.${index}.description`)}
                 </p>
               </div>
             </motion.div>
@@ -135,7 +126,7 @@ export default function CapabilitiesBento() {
             href="#contact"
             className="group inline-flex items-center text-brand-blue font-medium hover:text-brand-blue/80 transition-all duration-300"
           >
-            Conversemos sobre tus desafíos técnicos
+            {t("cta")}
             <svg className="ml-2 w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>

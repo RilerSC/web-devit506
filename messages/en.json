@@ -1,0 +1,636 @@
+{
+  "navbar": {
+    "capabilities": "Capabilities",
+    "projects": "Case Studies",
+    "contact": "Contact",
+    "cta": "Let's Talk",
+    "email": "jrsolorzano@devit506.com"
+  },
+  "hero": {
+    "badge": "External CTO Services since 2012",
+    "title": "Strategic Technology",
+    "titleAccent": "Partners",
+    "subtitle": "Strategic consulting and software development led by a team with over a decade of experience.",
+    "subtitleHighlight": "Technical excellence with business vision.",
+    "ctaPrimary": "Start the Conversation",
+    "ctaSecondary": "View Capabilities",
+    "socialProof": "Technology partners to leading companies in fintech, education, and enterprise services"
+  },
+  "trustBar": {
+    "kpisTitle": "Our Track Record in Numbers",
+    "kpis": {
+      "projects": "Successful Projects",
+      "clients": "Satisfied Clients",
+      "experience": "Years of Experience",
+      "uptime": "Solution Uptime"
+    },
+    "kpisFooter": "Delivering excellence since 2012 • Robust and reliable solutions",
+    "clientsTitle": "They Trust Us"
+  },
+  "capabilities": {
+    "badge": "Our Services",
+    "title": "Core Capabilities",
+    "subtitle": "Technical excellence across the entire stack. Strategic consulting combined with world-class software engineering.",
+    "cta": "Let's discuss your technical challenges",
+    "items": [
+      {
+        "title": "C-Suite Consulting",
+        "description": "External CTO Services. IT budget management, strategic technology planning, and executive leadership for high-impact organizations."
+      },
+      {
+        "title": "Custom Software Development",
+        "description": "Enterprise solutions with Next.js, React, TypeScript, Python, Azure, HTML5, and more. Scalable architecture and industrial-grade code quality."
+      },
+      {
+        "title": "Process Automation",
+        "description": "Automation of critical business workflows. Reduction of manual tasks, operational optimization, and enterprise efficiency."
+      },
+      {
+        "title": "Ecosystem Integration",
+        "description": "Custom connectors between ERP, CRM, and business platforms. Data synchronization and legacy systems unification."
+      },
+      {
+        "title": "Cloud Infrastructure",
+        "description": "Azure infrastructure. CI/CD pipelines, DevOps, monitoring, and cloud cost optimization."
+      },
+      {
+        "title": "Strategic IT Planning",
+        "description": "Technology roadmaps, stack evaluation, technical due diligence, and enterprise architecture definition."
+      }
+    ]
+  },
+  "projects": {
+    "title": "Our Most Recent Success Stories",
+    "subtitle": "Real impact on leading organizations. Technical complexity solved with strategic clarity.",
+    "viewCase": "View Case",
+    "comingSoon": "Coming Soon",
+    "ctaText": "Ready to discuss your technology challenges?",
+    "ctaButton": "Schedule a Consultation",
+    "items": [
+      {
+        "title": "Coopebanacio R.L. — Cooperative Transactional Marketplace",
+        "category": "E-commerce / Fintech",
+        "description": "Digital ecosystem for 150,000+ members with Zero-Trust architecture and geospatial engine. Projected to generate $500K+ in new digital revenue.",
+        "metrics": "95% Fraud Reduction | <1.2s Load Time"
+      },
+      {
+        "title": "Universidad FUNDEPOS — Sustainability Observatory",
+        "category": "Data & Sustainability",
+        "description": "Intelligence platform for monitoring sustainable development indicators. Server-first architecture optimized for high availability and Big Data scalability.",
+        "metrics": "55% Less Client-Side JS | Azure Ready"
+      },
+      {
+        "title": "HubSpot — CODEAS ERP Integration",
+        "category": "Systems Integration",
+        "description": "Custom connector between HubSpot CRM and CODEAS ERP (MS SQL) for commercial workflow optimization. Bidirectional synchronization of customers, opportunities, and pipeline.",
+        "metrics": "Real-time sync of 10K+ records"
+      }
+    ]
+  },
+  "contact": {
+    "title": "Let's Start the Conversation",
+    "subtitle": "Tell us about your technology challenge. We respond within 24 hours.",
+    "form": {
+      "name": {
+        "label": "Full Name",
+        "placeholder": "Enter your full name"
+      },
+      "company": {
+        "label": "Company",
+        "placeholder": "What is your company name?"
+      },
+      "email": {
+        "label": "Corporate Email",
+        "placeholder": "Enter your email, it's important for us to reach you"
+      },
+      "phone": {
+        "label": "Phone",
+        "placeholder": "8888 8888",
+        "hint": "Optional - We'll contact you through this channel if needed"
+      },
+      "contactPreference": {
+        "label": "How do you prefer we contact you?",
+        "email": "Email",
+        "phone": "Phone"
+      },
+      "language": {
+        "label": "Language preference",
+        "spanish": "Español",
+        "english": "English"
+      },
+      "challenge": {
+        "label": "Technology Challenge",
+        "placeholder": "Tell us about your project, technology challenge, or strategic consulting needs..."
+      },
+      "countrySearch": {
+        "placeholder": "Search country...",
+        "noResults": "No countries found"
+      },
+      "submit": "Send Message",
+      "submitting": "Sending...",
+      "privacyNotice": "By submitting this form, you agree that DEVIT506 may store your data to contact you. We do not share your information with third parties."
+    },
+    "alternativeContact": {
+      "text": "Prefer to email us directly?",
+      "email": "info@devit506.com"
+    }
+  },
+  "footer": {
+    "tagline": "Strategic technology partners since 2012. External CTO services with technical excellence and business vision for high-impact organizations.",
+    "services": {
+      "title": "Services",
+      "items": [
+        "External CTO",
+        "Custom Development",
+        "Process Automation",
+        "Systems Integration"
+      ]
+    },
+    "contact": {
+      "title": "Contact",
+      "location": "San José, Costa Rica",
+      "linkedin": "LinkedIn"
+    },
+    "legal": {
+      "copyright": "© {year} DEVIT506. All rights reserved.",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service"
+    }
+  },
+  "projectDetails": {
+    "common": {
+      "backToProjects": "Back to Case Studies",
+      "client": "Client",
+      "year": "Year",
+      "scheduleConsultation": "Schedule a Consultation",
+      "viewMoreProjects": "View More Case Studies",
+      "completed": "Completed",
+      "inProgress": "In Progress",
+      "planned": "Planned"
+    },
+    "marketplace": {
+      "meta": {
+        "category": "E-commerce / Fintech",
+        "year": "2026",
+        "status": "🚧 75% Complete",
+        "client": "Coopebanacio R.L."
+      },
+      "hero": {
+        "title": "Transactional Platform for",
+        "titleHighlight": "Social Economy",
+        "description": "Digital ecosystem for 4,300+ members with Zero-Trust architecture and geospatial engine. Projected to generate",
+        "descriptionHighlight": "new digital revenue streams",
+        "kpis": [
+          { "value": "7,500+", "label": "Potential Members" },
+          { "value": "Zero-Trust", "label": "Security / Law 8968" },
+          { "value": "<1.2s", "label": "Edge Load Time" }
+        ]
+      },
+      "executiveSummary": {
+        "badge": "Flagship Initiative",
+        "title": "Executive Summary",
+        "paragraph1": "The <strong>Cooperative Transactional Commerce Platform</strong> represents an enterprise-grade solution designed to enable a digital commerce ecosystem among over <span class=\"text-brand-blue font-semibold\">4,300 active members</span> of Coopebanacio R.L.",
+        "paragraph2": "This initiative combines <strong>high-performance hybrid architecture</strong> (Vercel Edge Network + Azure Cloud) with bank-grade security, establishing the foundation for a new digital revenue stream once operational maturity is achieved."
+      },
+      "challenge": {
+        "badge": "Strategic Challenge",
+        "title": "Digital Transformation Challenges",
+        "items": [
+          {
+            "icon": "💼",
+            "title": "Absence of Digital Channels",
+            "description": "Traditional business model limited to classic financial products. Untapped opportunity with high-income member base lacking an internal commerce platform."
+          },
+          {
+            "icon": "🤝",
+            "title": "Disconnect in Social Economy",
+            "description": "Members with their own businesses lacked an institutional digital storefront. Lack of trust in public platforms like Facebook Marketplace."
+          },
+          {
+            "icon": "🔐",
+            "title": "Regulatory Compliance",
+            "description": "Need for Zero-Trust architecture compatible with Law 8968 (Data Protection). MFA2 validation and complete transaction traceability."
+          }
+        ],
+        "painPointsTitle": "Economic Impact Without Solution",
+        "painPoints": [
+          "Value leakage: Members using external platforms",
+          "Data loss: No capture of member commercial behavior",
+          "Digital divide: Members over 45 without access to secure e-commerce"
+        ]
+      },
+      "architecture": {
+        "badge": "The Solution",
+        "title": "High-Performance Hybrid Architecture",
+        "subtitle": "Optimal combination of Vercel Edge (speed) + Azure Enterprise (security)",
+        "blocks": [
+          {
+            "title": "Globally Distributed Frontend",
+            "subtitle": "Vercel Edge Network (14+ CDN nodes)",
+            "items": [
+              "Next.js 14 App Router (React 18)",
+              "Progressive Web App (PWA)",
+              "Tailwind CSS v4",
+              "Load time: <1.2s (P95)"
+            ]
+          },
+          {
+            "title": "Secure Backend on Azure Cloud",
+            "subtitle": "Azure Enterprise (East US)",
+            "items": [
+              "PostgreSQL 14 + PostGIS (geospatial)",
+              "Azure Blob Storage (images)",
+              "Redis Cache (rate limiting)",
+              "SSL/TLS 1.3 certified"
+            ]
+          },
+          {
+            "title": "Multi-Factor Authentication",
+            "subtitle": "NextAuth.js v5 + Custom OTP",
+            "items": [
+              "Google Identity Platform",
+              "Meta OAuth (Facebook + Instagram)",
+              "6-digit OTP (SHA-256)",
+              "Zero-Trust verification"
+            ]
+          },
+          {
+            "title": "PostGIS Geospatial Engine",
+            "subtitle": "Proximity-Based Search",
+            "items": [
+              "GIST Index (queries <50ms)",
+              "Configurable radius (1-50 km)",
+              "Master table CR locations",
+              "Leaflet + OpenStreetMap"
+            ]
+          }
+        ],
+        "benefits": [
+          { "value": "60%", "label": "Less cart abandonment" },
+          { "value": "95%", "label": "Fraud reduction" },
+          { "value": "40%", "label": "Higher local conversion" },
+          { "value": "70%", "label": "Bandwidth reduction" }
+        ]
+      },
+      "impact": {
+        "badge": "Business Impact",
+        "title": "New Digital Revenue Stream",
+        "tableHeaders": ["Metric", "Year 1", "Year 3 (Scale)"],
+        "metrics": [
+          { "label": "Active Members", "year1": "4,300 sellers", "year3": "15,000+ sellers" },
+          { "label": "Transactions/month", "year1": "6,000", "year3": "50,000+" },
+          { "label": "Annual Revenue", "year1": "$0.00", "year3": "$15K - $25K" },
+          { "label": "ROI on investment", "year1": "0%", "year3": "450%+" }
+        ]
+      },
+      "roadmap": {
+        "badge": "Innovation Roadmap",
+        "title": "Project Phases",
+        "phases": [
+          {
+            "phase": "Phase 1",
+            "title": "Transactional Marketplace",
+            "status": "completed",
+            "statusLabel": "75% Complete",
+            "items": [
+              "OAuth authentication (Google, Facebook, Instagram)",
+              "2FA OTP for seller elevation",
+              "Listing CRUD with 10 optimized images",
+              "PostGIS geospatial search engine",
+              "Internal chat with notifications",
+              "Zero-Trust moderation panel",
+              "Complete audit system"
+            ]
+          },
+          {
+            "phase": "Phase 2",
+            "title": "Integrated Payments",
+            "status": "in_progress",
+            "statusLabel": "In Progress",
+            "items": [
+              "Sinpe Móvil integration",
+              "Card processing (PCI-DSS)",
+              "Cooperative wallet with internal balance",
+              "Automated commission system",
+              "Electronic invoicing (Costa Rica Tax Authority)"
+            ]
+          },
+          {
+            "phase": "Phase 3",
+            "title": "Business Intelligence",
+            "status": "planned",
+            "statusLabel": "Planned",
+            "items": [
+              "Analytics dashboard for sellers",
+              "Geolocation-based recommendations",
+              "Reputation and rating system",
+              "Push notifications (PWA)",
+              "Financial report exports"
+            ]
+          }
+        ]
+      },
+      "differentiators": {
+        "badge": "Differential Value",
+        "title": "DEVIT506 Expertise Applied",
+        "items": [
+          "Hybrid architecture: Vercel Edge (speed) + Azure (security)",
+          "Zero-Trust with real-time institutional validation",
+          "PostGIS geospatial vs proprietary solutions ($36K/year savings)",
+          "Ready for integrated payments (6-month head start)",
+          "Installable PWA without app store costs ($5K/year)",
+          "Law 8968 compliance from design (avoids fines up to $50K)"
+        ]
+      },
+      "testimonial": {
+        "quote": "The platform not only met our banking security requirements but also established the foundation to become the digital hub for our entire member community. The hybrid architecture gave us speed without compromising security.",
+        "author": "Technology Department",
+        "company": "Coopebanacio R.L."
+      },
+      "cta": {
+        "title": "Need a similar transactional platform?",
+        "description": "Let's discuss how we can create a digital ecosystem for your organization."
+      }
+    },
+    "hubspot": {
+      "meta": {
+        "category": "Systems Integration",
+        "year": "2025",
+        "client": "COOPEBANACIO / QUARZO SISTEMAS"
+      },
+      "hero": {
+        "title": "Intelligent",
+        "titleHighlight": "CRM-ERP Synchronization",
+        "metrics": [
+          { "value": "100%", "label": "Data Integrity" },
+          { "value": "+10,000", "label": "Records Synchronized" },
+          { "value": "+50%", "label": "Sync Speed" }
+        ]
+      },
+      "executiveSummary": {
+        "title": "Executive Summary",
+        "paragraph1": "<strong>COOPEBANACIO</strong> faced a critical operational efficiency challenge: their commercial ecosystem was fragmented between HubSpot CRM (front-office) and QUARZO SISTEMAS' CODEAS ERP based on MS SQL Server (back-office), generating <span class=\"text-brand-blue font-semibold\">data silos, manual double-entry, and limited commercial pipeline visibility</span>.",
+        "paragraph2": "DEVIT506 designed and implemented an <strong>intelligent bidirectional synchronization architecture</strong> that automatically synchronizes over 10,000 records between both ecosystems, achieving 100% write success rate and a 50% speed improvement over traditional implementations."
+      },
+      "challenge": {
+        "badge": "The Challenge",
+        "title": "Operational Fragmentation Between Front-Office and Back-Office",
+        "description1": "The organization operated with critical information silos: HubSpot CRM managed commercial relationships while the CODEAS ERP (MS SQL Server) maintained real financial and operational data.",
+        "description2": "This disconnect generated <strong>manual double-entry</strong>, inability to visualize the commercial pipeline in context with updated financial data, and loss of agility in strategic decisions.",
+        "painPointsTitle": "Critical Impacts of Data Siloing",
+        "painPoints": [
+          "Data silos between CRM and ERP compromising executive visibility",
+          "Manual double-entry with high risk of errors and inconsistencies",
+          "Lack of real-time visibility of credit status and financial products",
+          "Inability to automate commercial processes based on financial core data",
+          "Operational overhead in manual synchronization of over 10,000 records"
+        ]
+      },
+      "solution": {
+        "badge": "The Solution",
+        "title": "Intelligent Bidirectional Synchronization Architecture",
+        "subtitle": "Python 3.13 Engine + HubSpot API + MS SQL Server",
+        "description": "Automated synchronization system that dynamically maps 260+ custom properties between HubSpot and CODEAS ERP, prioritizing only fields with useful data through intelligent analysis that reduces data volume by 9x."
+      },
+      "phases": {
+        "badge": "Implementation Phases",
+        "title": "Development Methodology",
+        "items": [
+          {
+            "number": "1",
+            "title": "Architecture and Analysis",
+            "description": "Complete mapping of 260+ custom properties between HubSpot CRM and CODEAS ERP SQL Server schema. Design of bidirectional architecture with dynamic property analysis that automatically identifies only fields with useful data (9x volume reduction)."
+          },
+          {
+            "number": "2",
+            "title": "Synchronization Engine Development",
+            "description": "Implementation of specialized Python modules for optimized extraction from HubSpot (deals, tickets, contacts, owners, pipelines), writing with integrity guarantee using force_all_properties, automatic fallback, and robust rate limiting handling."
+          },
+          {
+            "number": "3",
+            "title": "Optimization and Validation",
+            "description": "Removal of pandas to reduce memory consumption by 70%, optimized batch processing for 50% speed improvement, exhaustive validation achieving 100% success rate in custom property writes."
+          },
+          {
+            "number": "4",
+            "title": "Deployment and Automation",
+            "description": "Configuration of automated scheduled synchronization on Windows Server with Task Scheduler, real-time monitoring with batch statistics, and complete technical documentation for knowledge transfer."
+          }
+        ]
+      },
+      "techStack": {
+        "badge": "Technology Stack",
+        "title": "Technologies and Tools",
+        "items": [
+          { "name": "Python 3.13", "role": "Processing and orchestration engine" },
+          { "name": "HubSpot REST API", "role": "HubSpot CRM integration" },
+          { "name": "MS SQL Server", "role": "CODEAS ERP connectivity" },
+          { "name": "ODBC Driver 17", "role": "Transaction optimization" },
+          { "name": "pyodbc", "role": "Python-SQL Server connector" },
+          { "name": "Task Scheduler", "role": "Synchronization automation" }
+        ]
+      },
+      "highlights": {
+        "badge": "Technical Highlights",
+        "title": "Key Engineering Decisions",
+        "items": [
+          "Dynamic property analysis reducing data volume by 9x",
+          "Batch processing of up to 500 records with intermediate commits",
+          "Bidirectional architecture with automatic error fallback",
+          "Data integrity guarantee with force_all_properties",
+          "Intelligent rate limiting handling with adaptive pauses",
+          "Automatic deduplication based on unique identifiers"
+        ]
+      },
+      "impact": {
+        "badge": "Business Impact",
+        "title": "Measurable Results",
+        "items": [
+          {
+            "metric": "100%",
+            "label": "Data Integrity",
+            "description": "Success rate in custom property writes"
+          },
+          {
+            "metric": "+50%",
+            "label": "Synchronization Speed",
+            "description": "Improvement over traditional implementations"
+          },
+          {
+            "metric": "9x",
+            "label": "Volume Reduction",
+            "description": "Dynamic analysis of useful properties"
+          },
+          {
+            "metric": "70%",
+            "label": "Memory Savings",
+            "description": "Elimination of pandas in processing"
+          }
+        ]
+      },
+      "cta": {
+        "title": "Need to integrate your enterprise systems?",
+        "description": "Let's talk about connecting your tool ecosystem."
+      }
+    },
+    "observatorio": {
+      "meta": {
+        "category": "Data & Sustainability",
+        "year": "2026",
+        "client": "FUNDEPOS Alma Máter University"
+      },
+      "hero": {
+        "title": "Territorial",
+        "titleHighlight": "Sustainability Observatory",
+        "description": "Intelligence platform for monitoring sustainable development indicators",
+        "descriptionHighlight": "Server-first architecture optimized for high availability and Big Data scalability",
+        "kpis": [
+          { "value": "-55%", "label": "JS Bundle", "detail": "Server-First Optimization" },
+          { "value": "<1s", "label": "Load Time", "detail": "Optimized LCP" },
+          { "value": "Azure-Ready", "label": "Architecture", "detail": "Big Data & AI" }
+        ]
+      },
+      "executiveSummary": {
+        "badge": "High Social Impact Project",
+        "title": "Executive Summary",
+        "paragraph1": "The <strong>Territorial Sustainability Observatory</strong> is a strategic intelligence platform developed for FUNDEPOS Alma Máter University, designed to monitor, analyze, and visualize key indicators of <span class=\"text-brand-blue font-semibold\">Sustainable Development in Costa Rican territories</span>.",
+        "paragraph2": "The server-first architecture with Next.js 15 and React 19 reduces client-side JavaScript by 55%, ensuring <strong>optimal performance in limited connectivity contexts</strong> and prepared for scalability towards Big Data and Artificial Intelligence."
+      },
+      "challenge": {
+        "badge": "The Challenge",
+        "title": "National-Scale Sustainability Indicator Monitoring",
+        "description1": "Costa Rican territories lacked a unified tool to monitor Sustainable Development Goals (SDGs) with updated data and real-time visibility.",
+        "description2": "The need for an <strong>accessible, high-performance platform</strong> prepared to scale to large data volume analysis required cutting-edge architecture without compromising user experience."
+      },
+      "solution": {
+        "badge": "The Solution",
+        "title": "High-Performance Server-First Architecture",
+        "subtitle": "Next.js 15 + React 19 + Server Components",
+        "description": "Platform optimized for instant loading with 55% reduction in client JavaScript, progressive content streaming, and architecture prepared for Azure Big Data and AI integration."
+      },
+      "phase1": {
+        "badge": "Phase 1: Completed",
+        "title": "Platform Foundations",
+        "items": [
+          {
+            "title": "Server-First Architecture",
+            "description": "Next.js 15 (App Router) with React 19, maximizing server-side rendering for optimal performance."
+          },
+          {
+            "title": "Extreme Loading Efficiency",
+            "description": "55% reduction in JavaScript sent to client (-1,860 KB from original bundle) through Server Components."
+          },
+          {
+            "title": "Decoupled Content Management",
+            "description": "JSON-based data system, prepared for transparent migration to relational databases."
+          },
+          {
+            "title": "Document Viewer with Streaming",
+            "description": "Premium user experience with progressive streaming for instant loading of heavy technical files."
+          }
+        ]
+      },
+      "techStack": {
+        "badge": "Technology Stack",
+        "title": "Cutting-Edge Technologies",
+        "categories": [
+          {
+            "category": "Frontend Layer",
+            "items": ["Next.js 15 (App Router)", "React 19 (Server Components)", "TypeScript 5.6", "Tailwind CSS v4"]
+          },
+          {
+            "category": "Performance Optimization",
+            "items": ["Server-First Architecture", "Progressive Streaming", "Image Optimization (next/image)", "Static Generation (SSG)"]
+          },
+          {
+            "category": "Data & Hosting",
+            "items": ["JSON-based CMS (Phase 1)", "Vercel Edge Network", "Git-based Content Management", "Azure Big Data (Planned)"]
+          }
+        ]
+      },
+      "roadmap": {
+        "badge": "Evolution Roadmap",
+        "title": "Project Phases",
+        "phases": [
+          {
+            "phase": "Phase 1",
+            "title": "Base Platform & Data Viewer",
+            "status": "Completed",
+            "items": [
+              "Server-First Architecture (Next.js 15 + React 19)",
+              "55% reduction in JavaScript bundle",
+              "Indicator navigation and visualization system",
+              "Document viewer with progressive streaming",
+              "Mobile-first adaptive design"
+            ]
+          },
+          {
+            "phase": "Phase 2",
+            "title": "Big Data & Advanced Analytics",
+            "status": "Planned",
+            "items": [
+              "Azure Data Lake integration",
+              "SDG indicator analysis engine",
+              "Trend visualization dashboard",
+              "Automatic alert system",
+              "REST API for third parties"
+            ]
+          },
+          {
+            "phase": "Phase 3",
+            "title": "Artificial Intelligence",
+            "status": "Planned",
+            "items": [
+              "ML-based trend prediction",
+              "Public policy recommendations",
+              "Cross-indicator correlation analysis",
+              "Automatic executive report generation"
+            ]
+          }
+        ]
+      },
+      "impact": {
+        "badge": "Technical and Social Impact",
+        "title": "Performance and Reach Metrics",
+        "items": [
+          {
+            "metric": "-55%",
+            "label": "JavaScript Bundle Reduction",
+            "description": "From 3,360 KB to 1,500 KB through Server Components"
+          },
+          {
+            "metric": "<1s",
+            "label": "Initial Load Time",
+            "description": "Optimized LCP for limited connectivity contexts"
+          },
+          {
+            "metric": "100%",
+            "label": "Mobile-Friendly",
+            "description": "Adaptive design with optimal performance on mobile devices"
+          },
+          {
+            "metric": "Azure-Ready",
+            "label": "Scalability",
+            "description": "Architecture prepared for Big Data and Artificial Intelligence"
+          }
+        ]
+      },
+      "differentiators": {
+        "badge": "Differential Value",
+        "title": "DEVIT506 Expertise Applied",
+        "items": [
+          "Server-First Architecture vs client-heavy architectures (+55% faster)",
+          "Progressive content streaming for premium UX",
+          "Zero overhead on mobile devices (critical for sustainability)",
+          "AI-ready architecture without costly re-architecture",
+          "Git-based content management (complete change audit)",
+          "Global deployment on Vercel Edge (14+ CDN locations)"
+        ]
+      },
+      "cta": {
+        "title": "Need a high-performance data platform?",
+        "description": "Let's discuss how to create scalable solutions for your organization."
+      }
+    }
+  }
+}

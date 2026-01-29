@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Link from "next/link";
+import { Link } from "@/navigation";
+import { useTranslations } from "next-intl";
 
 // Componente de tarjeta KPI
 function KPICard({ 
@@ -36,19 +37,21 @@ function RoadmapPhase({
   phase, 
   title, 
   status, 
+  statusLabel,
   items, 
   delay = 0 
 }: { 
   phase: string; 
   title: string; 
   status: "completed" | "in_progress" | "planned";
+  statusLabel: string;
   items: string[];
   delay?: number;
 }) {
   const statusConfig = {
-    completed: { bg: "bg-green-500", text: "Completado 75%", icon: "✓" },
-    in_progress: { bg: "bg-yellow-500", text: "En Progreso", icon: "⏳" },
-    planned: { bg: "bg-gray-400", text: "Planificado", icon: "📅" }
+    completed: { bg: "bg-green-500", icon: "✓" },
+    in_progress: { bg: "bg-yellow-500", icon: "⏳" },
+    planned: { bg: "bg-gray-400", icon: "📅" }
   };
   
   const config = statusConfig[status];
@@ -66,7 +69,7 @@ function RoadmapPhase({
           {phase}
         </span>
         <span className={`${config.bg} text-white text-xs px-3 py-1 rounded-full font-medium`}>
-          {config.icon} {config.text}
+          {config.icon} {statusLabel}
         </span>
       </div>
       <h4 className="text-xl font-bold text-brand-black mb-4">{title}</h4>
@@ -146,112 +149,18 @@ function ImpactMetric({
 }
 
 export default function CaseStudyMarketplace() {
-  const kpis = [
-    { value: "7,500+", label: "Asociados Potenciales" },
-    { value: "Zero-Trust", label: "Seguridad / Ley 8968" },
-    { value: "<1.2s", label: "Tiempo de Carga (Edge)" },
-  ];
+  const t = useTranslations("projectDetails.marketplace");
+  const tc = useTranslations("projectDetails.common");
 
-  const challenges = [
-    {
-      title: "Ausencia de Canales Digitales",
-      description: "Modelo de negocio tradicional limitado a productos financieros clásicos. Oportunidad inexplotada con base de asociados de alto poder adquisitivo sin plataforma de comercio interno."
-    },
-    {
-      title: "Desconexión en la Economía Social",
-      description: "Asociados con negocios propios carecían de vitrina digital institucional. Falta de confianza en plataformas públicas como Facebook Marketplace."
-    },
-    {
-      title: "Cumplimiento Normativo",
-      description: "Necesidad de arquitectura Zero-Trust compatible con Ley 8968 (Protección de Datos). Validación MFA2 y trazabilidad completa de transacciones."
-    }
-  ];
-
-  const painPoints = [
-    "Fuga de valor: Asociados usando plataformas externas",
-    "Pérdida de datos: Sin captura de comportamiento comercial de asociados",
-    "Brecha digital: Asociados mayores de 45 años sin acceso a e-commerce seguro"
-  ];
-
-  const architectureBlocks = [
-    {
-      title: "Frontend Distribuido Globalmente",
-      subtitle: "Vercel Edge Network (14+ nodos CDN)",
-      items: ["Next.js 14 App Router (React 18)", "Progressive Web App (PWA)", "Tailwind CSS v4", "Tiempo de carga: <1.2s (P95)"]
-    },
-    {
-      title: "Backend Seguro en Azure Cloud",
-      subtitle: "Azure Enterprise (East US)",
-      items: ["PostgreSQL 14 + PostGIS (geoespacial)", "Azure Blob Storage (imágenes)", "Redis Cache (rate limiting)", "SSL/TLS 1.3 certificado"]
-    },
-    {
-      title: "Autenticación Multi-Factor",
-      subtitle: "NextAuth.js v5 + Custom OTP",
-      items: ["Google Identity Platform", "Meta OAuth (Facebook + Instagram)", "OTP 6 dígitos (SHA-256)", "Verificación Zero-Trust"]
-    },
-    {
-      title: "Motor Geoespacial PostGIS",
-      subtitle: "Búsqueda por Proximidad",
-      items: ["Índice GIST (consultas <50ms)", "Radio configurable (1-50 km)", "Tabla Maestra ubicaciones CR", "Leaflet + OpenStreetMap"]
-    }
-  ];
-
-  const roadmapPhases = [
-    {
-      phase: "Fase 1",
-      title: "Marketplace Transaccional",
-      status: "completed" as const,
-      items: [
-        "Autenticación OAuth (Google, Facebook, Instagram)",
-        "OTP 2FA para elevación a vendedor",
-        "CRUD de listings con 10 imágenes optimizadas",
-        "Motor de búsqueda geoespacial PostGIS",
-        "Chat interno con notificaciones",
-        "Panel de moderación Zero-Trust",
-        "Sistema de auditoría completo"
-      ]
-    },
-    {
-      phase: "Fase 2",
-      title: "Pagos Integrados",
-      status: "in_progress" as const,
-      items: [
-        "Integración con Sinpe Móvil",
-        "Procesamiento de tarjetas (PCI-DSS)",
-        "Wallet cooperativo con saldo interno",
-        "Sistema de comisiones automatizado",
-        "Facturación electrónica (Hacienda CR)"
-      ]
-    },
-    {
-      phase: "Fase 3",
-      title: "Inteligencia de Negocio",
-      status: "planned" as const,
-      items: [
-        "Dashboard analytics para vendedores",
-        "Recomendaciones por geolocalización",
-        "Sistema de reputación y ratings",
-        "Notificaciones push (PWA)",
-        "Exportación de reportes financieros"
-      ]
-    }
-  ];
-
-  const impactMetrics = [
-    { label: "Asociados Activos", year1: "4,300 vendedores", year3: "15,000+ vendedores" },
-    { label: "Transacciones/mes", year1: "6,000", year3: "50,000+" },
-    { label: "Ingresos Anuales", year1: "$0,00", year3: "$15K - $25K" },
-    { label: "ROI sobre inversión", year1: "0%", year3: "450%+" }
-  ];
-
-  const differentiators = [
-    "Arquitectura híbrida: Vercel Edge (velocidad) + Azure (seguridad)",
-    "Zero-Trust con validación institucional en tiempo real",
-    "PostGIS geoespacial vs soluciones propietarias ($36K/año ahorro)",
-    "Preparado para pagos integrados (6 meses de ventaja)",
-    "PWA instalable sin costo de tiendas de apps ($5K/año)",
-    "Cumplimiento Ley 8968 desde diseño (evita multas hasta $50K)"
-  ];
+  // Obtener datos estructurados del JSON
+  const kpis = t.raw("hero.kpis") as Array<{value: string; label: string}>;
+  const challenges = t.raw("challenge.items") as Array<{icon: string; title: string; description: string}>;
+  const painPoints = t.raw("challenge.painPoints") as string[];
+  const architectureBlocks = t.raw("architecture.blocks") as Array<{title: string; subtitle: string; items: string[]}>;
+  const architectureBenefits = t.raw("architecture.benefits") as Array<{value: string; label: string}>;
+  const impactMetrics = t.raw("impact.metrics") as Array<{label: string; year1: string; year3: string}>;
+  const roadmapPhases = t.raw("roadmap.phases") as Array<{phase: string; title: string; status: "completed" | "in_progress" | "planned"; statusLabel: string; items: string[]}>;
+  const differentiators = t.raw("differentiators.items") as string[];
 
   return (
     <main className="min-h-screen">
@@ -272,7 +181,7 @@ export default function CaseStudyMarketplace() {
               <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
               </svg>
-              Volver a Proyectos
+              {tc("backToProjects")}
             </Link>
           </motion.div>
 
@@ -284,10 +193,10 @@ export default function CaseStudyMarketplace() {
             className="mb-6 flex flex-wrap gap-3"
           >
             <span className="inline-block px-4 py-2 bg-brand-blue/20 text-brand-blue rounded-full text-sm font-medium">
-              E-commerce / Fintech • 2026
+              {t("meta.category")} • {t("meta.year")}
             </span>
             <span className="inline-block px-4 py-2 bg-yellow-500/20 text-yellow-400 rounded-full text-sm font-medium">
-              🚧 75% Completado
+              {t("meta.status")}
             </span>
           </motion.div>
 
@@ -298,8 +207,8 @@ export default function CaseStudyMarketplace() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 max-w-4xl"
           >
-            Plataforma Transaccional de{" "}
-            <span className="text-brand-blue">Economía Social</span>
+            {t("hero.title")}{" "}
+            <span className="text-brand-blue">{t("hero.titleHighlight")}</span>
           </motion.h1>
 
           {/* Client */}
@@ -309,7 +218,7 @@ export default function CaseStudyMarketplace() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="text-xl text-gray-400 mb-4"
           >
-            Cliente: <span className="text-white">Coopebanacio R.L.</span>
+            {tc("client")}: <span className="text-white">{t("meta.client")}</span>
           </motion.p>
 
           <motion.p
@@ -318,8 +227,8 @@ export default function CaseStudyMarketplace() {
             transition={{ duration: 0.6, delay: 0.35 }}
             className="text-lg text-gray-500 mb-12 max-w-3xl"
           >
-            Ecosistema digital para 4,300+ asociados con arquitectura Zero-Trust y motor geoespacial. 
-            Proyectado para generar <span className="text-brand-blue font-semibold">nuevos ingresos digitales</span>.
+            {t("hero.description")}{" "}
+            <span className="text-brand-blue font-semibold">{t("hero.descriptionHighlight")}</span>.
           </motion.p>
 
           {/* KPI Grid */}
@@ -345,16 +254,12 @@ export default function CaseStudyMarketplace() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <span className="text-brand-blue font-semibold text-sm uppercase tracking-wide">Proyecto Buque Insignia</span>
+            <span className="text-brand-blue font-semibold text-sm uppercase tracking-wide">{t("executiveSummary.badge")}</span>
             <h2 className="text-3xl md:text-4xl font-bold text-brand-black mt-2 mb-6">
-              Resumen Ejecutivo
+              {t("executiveSummary.title")}
             </h2>
-            <p className="text-lg text-gray-600 leading-relaxed mb-6">
-              La <strong>Plataforma de Comercio Transaccional Cooperativo</strong> representa una solución de clase empresarial diseñada para habilitar un ecosistema digital de intercambio comercial entre más de <span className="text-brand-blue font-semibold">4,300 asociados activos</span> de Coopebanacio R.L.
-            </p>
-            <p className="text-lg text-gray-600 leading-relaxed">
-              Este proyecto combina <strong>arquitectura híbrida de alto rendimiento</strong> (Vercel Edge Network + Azure Cloud) con seguridad de nivel bancario, estableciendo las bases para una nueva línea de ingresos digitales <span className="text-brand-blue font-semibold"></span> una vez alcanzada la madurez operativa.
-            </p>
+            <p className="text-lg text-gray-600 leading-relaxed mb-6" dangerouslySetInnerHTML={{ __html: t("executiveSummary.paragraph1") }} />
+            <p className="text-lg text-gray-600 leading-relaxed" dangerouslySetInnerHTML={{ __html: t("executiveSummary.paragraph2") }} />
           </motion.div>
         </div>
       </section>
@@ -369,9 +274,9 @@ export default function CaseStudyMarketplace() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <span className="text-brand-blue font-semibold text-sm uppercase tracking-wide">El Reto Estratégico</span>
+            <span className="text-brand-blue font-semibold text-sm uppercase tracking-wide">{t("challenge.badge")}</span>
             <h2 className="text-3xl md:text-4xl font-bold text-brand-black mt-2 mb-4">
-              Desafíos de Transformación Digital
+              {t("challenge.title")}
             </h2>
           </motion.div>
 
@@ -386,7 +291,7 @@ export default function CaseStudyMarketplace() {
                 className="bg-white rounded-xl p-6 border border-gray-200"
               >
                 <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center text-2xl mb-4">
-                  {index === 0 ? "💼" : index === 1 ? "🤝" : "🔐"}
+                  {challenge.icon}
                 </div>
                 <h3 className="text-xl font-bold text-brand-black mb-3">{challenge.title}</h3>
                 <p className="text-gray-600 text-sm">{challenge.description}</p>
@@ -402,7 +307,7 @@ export default function CaseStudyMarketplace() {
             transition={{ duration: 0.6 }}
             className="bg-red-50 border border-red-200 rounded-xl p-8"
           >
-            <h3 className="text-xl font-bold text-red-800 mb-4">Impacto Económico Sin Solución</h3>
+            <h3 className="text-xl font-bold text-red-800 mb-4">{t("challenge.painPointsTitle")}</h3>
             <div className="grid md:grid-cols-3 gap-4">
               {painPoints.map((point, index) => (
                 <div key={index} className="flex items-start gap-3">
@@ -425,12 +330,12 @@ export default function CaseStudyMarketplace() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <span className="text-brand-blue font-semibold text-sm uppercase tracking-wide">La Solución</span>
+            <span className="text-brand-blue font-semibold text-sm uppercase tracking-wide">{t("architecture.badge")}</span>
             <h2 className="text-3xl md:text-4xl font-bold text-white mt-2 mb-4">
-              Arquitectura Híbrida de Alto Rendimiento
+              {t("architecture.title")}
             </h2>
             <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-              Combinación óptima de Vercel Edge (velocidad) + Azure Enterprise (seguridad)
+              {t("architecture.subtitle")}
             </p>
           </motion.div>
 
@@ -454,12 +359,7 @@ export default function CaseStudyMarketplace() {
             transition={{ duration: 0.6, delay: 0.5 }}
             className="mt-12 grid md:grid-cols-4 gap-4"
           >
-            {[
-              { value: "60%", label: "Menos abandono por carga" },
-              { value: "95%", label: "Reducción de fraude" },
-              { value: "40%", label: "Más conversión local" },
-              { value: "70%", label: "Reducción ancho banda" }
-            ].map((benefit, index) => (
+            {architectureBenefits.map((benefit, index) => (
               <div key={index} className="text-center p-4 bg-gray-800/50 rounded-lg">
                 <div className="text-2xl font-bold text-brand-blue">{benefit.value}</div>
                 <div className="text-sm text-gray-400">{benefit.label}</div>
@@ -479,9 +379,9 @@ export default function CaseStudyMarketplace() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <span className="text-brand-blue font-semibold text-sm uppercase tracking-wide">Impacto Empresarial</span>
+            <span className="text-brand-blue font-semibold text-sm uppercase tracking-wide">{t("impact.badge")}</span>
             <h2 className="text-3xl md:text-4xl font-bold text-brand-black mt-2 mb-4">
-              Nueva Línea de Ingresos Digitales
+              {t("impact.title")}
             </h2>
           </motion.div>
 
@@ -489,9 +389,9 @@ export default function CaseStudyMarketplace() {
             <table className="w-full">
               <thead>
                 <tr className="border-b-2 border-gray-200">
-                  <th className="text-left py-4 font-semibold text-brand-black">Métrica</th>
-                  <th className="text-center py-4 font-semibold text-gray-500">Año 1</th>
-                  <th className="text-center py-4 font-semibold text-brand-blue">Año 3 (Escala)</th>
+                  <th className="text-left py-4 font-semibold text-brand-black">{t("impact.tableHeaders.0")}</th>
+                  <th className="text-center py-4 font-semibold text-gray-500">{t("impact.tableHeaders.1")}</th>
+                  <th className="text-center py-4 font-semibold text-brand-blue">{t("impact.tableHeaders.2")}</th>
                 </tr>
               </thead>
               <tbody>
@@ -520,9 +420,9 @@ export default function CaseStudyMarketplace() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <span className="text-brand-blue font-semibold text-sm uppercase tracking-wide">Roadmap de Innovación</span>
+            <span className="text-brand-blue font-semibold text-sm uppercase tracking-wide">{t("roadmap.badge")}</span>
             <h2 className="text-3xl md:text-4xl font-bold text-brand-black mt-2 mb-4">
-              Fases del Proyecto
+              {t("roadmap.title")}
             </h2>
           </motion.div>
 
@@ -533,6 +433,7 @@ export default function CaseStudyMarketplace() {
                 phase={phase.phase}
                 title={phase.title}
                 status={phase.status}
+                statusLabel={phase.statusLabel}
                 items={phase.items}
                 delay={index * 0.15}
               />
@@ -551,9 +452,9 @@ export default function CaseStudyMarketplace() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <span className="text-brand-blue font-semibold text-sm uppercase tracking-wide">Valor Diferencial</span>
+            <span className="text-brand-blue font-semibold text-sm uppercase tracking-wide">{t("differentiators.badge")}</span>
             <h2 className="text-3xl md:text-4xl font-bold text-brand-black mt-2 mb-4">
-              Expertise DEVIT506 Aplicado
+              {t("differentiators.title")}
             </h2>
           </motion.div>
 
@@ -588,11 +489,11 @@ export default function CaseStudyMarketplace() {
               <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
             </svg>
             <blockquote className="text-xl md:text-2xl text-white font-medium mb-8 leading-relaxed">
-              "La plataforma no solo cumplió con nuestros requerimientos de seguridad bancaria, sino que estableció las bases para convertirse en el hub digital de toda nuestra comunidad de asociados. La arquitectura híbrida nos dio velocidad sin comprometer la seguridad."
+              {t("testimonial.quote")}
             </blockquote>
             <div>
-              <p className="text-white font-semibold">Dirección de Tecnología</p>
-              <p className="text-white/70">Coopebanacio R.L.</p>
+              <p className="text-white font-semibold">{t("testimonial.author")}</p>
+              <p className="text-white/70">{t("testimonial.company")}</p>
             </div>
           </motion.div>
         </div>
@@ -608,23 +509,23 @@ export default function CaseStudyMarketplace() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-3xl md:text-4xl font-bold text-brand-black mb-4">
-              ¿Necesitas una plataforma transaccional similar?
+              {t("cta.title")}
             </h2>
             <p className="text-xl text-gray-600 mb-8">
-              Conversemos sobre cómo podemos crear un ecosistema digital para tu organización.
+              {t("cta.description")}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/#contact"
                 className="inline-block bg-brand-blue text-white px-8 py-4 rounded-lg text-lg font-medium hover:bg-brand-blue/90 transition-all shadow-lg hover:shadow-xl"
               >
-                Agenda una Consultoría
+                {tc("scheduleConsultation")}
               </Link>
               <Link
                 href="/#projects"
                 className="inline-block bg-gray-100 text-brand-black px-8 py-4 rounded-lg text-lg font-medium hover:bg-gray-200 transition-all"
               >
-                Ver más Proyectos
+                {tc("viewMoreProjects")}
               </Link>
             </div>
           </motion.div>

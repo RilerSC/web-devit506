@@ -1,6 +1,11 @@
+"use client";
+
 import Image from "next/image";
+import { useTranslations } from "next-intl";
+import { Link } from "@/navigation";
 
 export default function Footer() {
+  const t = useTranslations("footer");
   const currentYear = new Date().getFullYear();
 
   return (
@@ -17,42 +22,27 @@ export default function Footer() {
               className="h-8 w-auto mb-4"
             />
             <p className="text-sm text-gray-400 max-w-md">
-              Socios tecnológicos estratégicos desde 2012. 
-              Servicios de CTO Externo con excelencia técnica 
-              y visión de negocio para empresas de alto impacto.
+              {t("tagline")}
             </p>
           </div>
 
           {/* Services Column */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Servicios</h3>
+            <h3 className="text-white font-semibold mb-4">{t("services.title")}</h3>
             <ul className="space-y-2 text-sm">
-              <li>
-                <a href="/#capabilities" className="hover:text-brand-blue transition-colors duration-200">
-                  CTO Externo
-                </a>
-              </li>
-              <li>
-                <a href="/#capabilities" className="hover:text-brand-blue transition-colors duration-200">
-                  Desarrollo a Medida
-                </a>
-              </li>
-              <li>
-                <a href="/#capabilities" className="hover:text-brand-blue transition-colors duration-200">
-                  Automatización de Procesos
-                </a>
-              </li>
-              <li>
-                <a href="/#capabilities" className="hover:text-brand-blue transition-colors duration-200">
-                  Integración de Sistemas
-                </a>
-              </li>
+              {["items.0", "items.1", "items.2", "items.3"].map((key, index) => (
+                <li key={index}>
+                  <Link href="/#capabilities" className="hover:text-brand-blue transition-colors duration-200">
+                    {t(`services.${key}`)}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
           {/* Contact Column */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Contacto</h3>
+            <h3 className="text-white font-semibold mb-4">{t("contact.title")}</h3>
             <ul className="space-y-2 text-sm">
               <li>
                 <a href="mailto:jrsolorzano@devit506.com" className="hover:text-brand-blue transition-colors duration-200">
@@ -61,11 +51,11 @@ export default function Footer() {
               </li>
               <li>
                 <a href="https://www.linkedin.com/company/devit506" target="_blank" rel="noopener noreferrer" className="hover:text-brand-blue transition-colors duration-200">
-                  LinkedIn
+                  {t("contact.linkedin")}
                 </a>
               </li>
               <li>
-                <span className="text-gray-500">San José, Costa Rica</span>
+                <span className="text-gray-500">{t("contact.location")}</span>
               </li>
             </ul>
           </div>
@@ -74,13 +64,13 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="mt-12 pt-8 border-t border-gray-800">
           <div className="flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
-            <p>© {currentYear} DEVIT506. All rights reserved.</p>
+            <p>{t("legal.copyright", { year: currentYear })}</p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <span className="hover:text-brand-blue transition-colors duration-200 cursor-pointer">
-                Privacy Policy
+                {t("legal.privacy")}
               </span>
               <span className="hover:text-brand-blue transition-colors duration-200 cursor-pointer">
-                Terms of Service
+                {t("legal.terms")}
               </span>
             </div>
           </div>

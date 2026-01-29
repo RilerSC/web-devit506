@@ -1,8 +1,12 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
+import { NextIntlClientProvider } from "next-intl";
+import { getMessages } from "next-intl/server";
+import { notFound } from "next/navigation";
+import "../globals.css";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import { locales } from "../../i18n";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,6 +17,14 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
+
+// ✅ CRÍTICO: Genera rutas estáticas para /es y /en durante el build
+export function generateStaticParams() {
+  return [
+    { locale: "es" },
+    { locale: "en" }
+  ];
+}
 
 export const metadata: Metadata = {
   title: "DEVIT506 | Socios Tecnológicos Estratégicos desde 2012",
@@ -70,7 +82,7 @@ export const metadata: Metadata = {
     description: "Servicios de CTO Externo y consultoría estratégica tecnológica. Lideramos proyectos de alto impacto con más de una década de experiencia en el sector.",
     images: [
       {
-        url: "/og-image.png", // Crear esta imagen: 1200x630px con branding DEVIT506
+        url: "/og-image.png",
         width: 1200,
         height: 630,
         alt: "DEVIT506 - Socios Tecnológicos Estratégicos",
@@ -81,8 +93,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "DEVIT506 | Socios Tecnológicos Estratégicos desde 2012",
     description: "Servicios de CTO Externo y consultoría estratégica tecnológica. Lideramos proyectos de alto impacto con excelencia técnica y visión de negocio.",
-    images: ["/twitter-image.png"], // Misma imagen o variante 1200x675px
-    creator: "@devit506", // Actualizar con el handle real de Twitter si existe
+    images: ["/twitter-image.png"],
+    creator: "@devit506",
   },
   verification: {
     // Agregar cuando estén disponibles:
@@ -95,21 +107,47 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function LocaleLayout({
   children,
-}: Readonly<{
+  params,
+}: {
   children: React.ReactNode;
-}>) {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+
+  console.log(">>> SERVER: layout.tsx recibió locale de params:", locale);
+
+  // ✅ Validación suave: confiar en que middleware ya validó
+  // Si locale es inválido, middleware habrá redirigido
+  // Solo validamos por seguridad extra
+  if (!locales.includes(locale as any)) {
+    console.log(">>> SERVER: locale NO VÁLIDO, llamando notFound()");
+    notFound();
+  }
+
+  console.log(">>> SERVER: locale VÁLIDO, obteniendo mensajes...");
+
+  // ✅ CRÍTICO: Pasar locale explícitamente para forzar sincronización
+  // Durante SSG, el contexto de next-intl puede no estar configurado correctamente
+  // Forzamos el uso del locale de params en vez de confiar en el contexto
+  const messages = await getMessages({ locale });
+
+  console.log(">>> SERVER: Mensajes obtenidos, keys disponibles:", Object.keys(messages).slice(0, 3).join(", "));
+  console.log(">>> SERVER: Pasando a NextIntlClientProvider - locale:", locale);
+
   return (
-    <html lang="es-CR" className="scroll-smooth">
+    <html lang={locale} className="scroll-smooth">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Navbar />
-        <main className="min-h-screen pt-16">
-          {children}
-        </main>
-        <Footer />
+        <NextIntlClientProvider locale={locale} messages={messages}>
+          <Navbar />
+          <main className="min-h-screen pt-16">
+            {children}
+          </main>
+          <Footer />
+        </NextIntlClientProvider>
       </body>
     </html>
   );

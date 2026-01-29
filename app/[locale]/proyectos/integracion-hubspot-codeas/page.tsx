@@ -2,7 +2,8 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/navigation";
+import { useTranslations } from "next-intl";
 
 // Componente de tarjeta de métrica
 function MetricCard({ 
@@ -88,60 +89,14 @@ function TechItem({
 }
 
 export default function CaseStudyHubSpot() {
-  const metrics = [
-    { value: "100%", label: "Integridad de Datos" },
-    { value: "+10,000", label: "Registros Sincronizados" },
-    { value: "+50%", label: "Velocidad de Sincronización" },
-  ];
+  const t = useTranslations("projectDetails.hubspot");
+  const tc = useTranslations("projectDetails.common");
 
-  const painPoints = [
-    "Silos de datos entre CRM y ERP comprometiendo la visibilidad ejecutiva",
-    "Doble digitación manual con alto riesgo de errores e inconsistencias",
-    "Falta de visibilidad en tiempo real del estado crediticio y productos financieros",
-    "Imposibilidad de automatizar procesos comerciales basados en datos del núcleo financiero",
-    "Overhead operativo en sincronización manual de más de 10,000 registros",
-  ];
-
-  const phases = [
-    {
-      number: "1",
-      title: "Arquitectura y Análisis",
-      description: "Mapeo completo de 260+ propiedades personalizadas entre HubSpot CRM y esquema SQL Server del ERP CODEAS. Diseño de arquitectura bidireccional con análisis dinámico de propiedades que identifica automáticamente solo los campos con datos útiles (reducción 9x en volumen).",
-    },
-    {
-      number: "2",
-      title: "Desarrollo del Motor de Sincronización",
-      description: "Implementación de módulos Python especializados para extracción optimizada desde HubSpot (deals, tickets, contactos, owners, pipelines), escritura con garantía de integridad usando force_all_properties, fallback automático y manejo robusto de rate limiting.",
-    },
-    {
-      number: "3",
-      title: "Optimización y Validación",
-      description: "Eliminación de pandas para reducir 70% el consumo de memoria, procesamiento por lotes optimizado para 50% mejora en velocidad, validación exhaustiva alcanzando 100% de tasa de éxito en escritura de propiedades personalizadas.",
-    },
-    {
-      number: "4",
-      title: "Despliegue y Automatización",
-      description: "Configuración de sincronización automática programada en Windows Server con Task Scheduler, monitoreo en tiempo real con estadísticas por lote, y documentación técnica completa para transferencia de conocimiento.",
-    },
-  ];
-
-  const techStack = [
-    { name: "Python 3.13", role: "Motor de procesamiento y orquestación" },
-    { name: "HubSpot REST API", role: "Integración con CRM HubSpot" },
-    { name: "MS SQL Server", role: "Conectividad con ERP CODEAS" },
-    { name: "ODBC Driver 17", role: "Optimización de transacciones" },
-    { name: "pyodbc", role: "Conector Python-SQL Server" },
-    { name: "Task Scheduler", role: "Automatización de sincronización" },
-  ];
-
-  const highlights = [
-    "Análisis dinámico de propiedades que reduce 9x el volumen de datos",
-    "Procesamiento por lotes de hasta 500 registros con commits intermedios",
-    "Arquitectura bidireccional con fallback automático ante errores",
-    "Garantía de integridad de datos con force_all_properties",
-    "Manejo inteligente de rate limiting con pausas adaptativas",
-    "Deduplicación automática basada en identificadores únicos",
-  ];
+  const metrics = t.raw("hero.metrics") as Array<{value: string; label: string}>;
+  const painPoints = t.raw("challenge.painPoints") as string[];
+  const phases = t.raw("phases.items") as Array<{number: string; title: string; description: string}>;
+  const techStack = t.raw("techStack.items") as Array<{name: string; role: string}>;
+  const highlights = t.raw("highlights.items") as string[];
 
   return (
     <main className="min-h-screen">
@@ -162,7 +117,7 @@ export default function CaseStudyHubSpot() {
               <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
               </svg>
-              Volver a Proyectos
+              {tc("backToProjects")}
             </Link>
           </motion.div>
 
@@ -174,7 +129,7 @@ export default function CaseStudyHubSpot() {
             className="mb-6"
           >
             <span className="inline-block px-4 py-2 bg-brand-blue/20 text-brand-blue rounded-full text-sm font-medium">
-              Integración de Sistemas • 2025
+              {t("meta.category")} • {t("meta.year")}
             </span>
           </motion.div>
 
@@ -185,8 +140,8 @@ export default function CaseStudyHubSpot() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 max-w-4xl"
           >
-            Sincronización Inteligente{" "}
-            <span className="text-brand-blue">CRM-ERP</span>
+            {t("hero.title")}{" "}
+            <span className="text-brand-blue">{t("hero.titleHighlight")}</span>
           </motion.h1>
 
           {/* Client */}
@@ -196,7 +151,7 @@ export default function CaseStudyHubSpot() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="text-xl text-gray-400 mb-12"
           >
-            Cliente: <span className="text-white">COOPEBANACIO</span> / <span className="text-gray-300">QUARZO SISTEMAS</span>
+            {tc("client")}: <span className="text-white">{t("meta.client")}</span>
           </motion.p>
 
           {/* Metrics Grid */}
@@ -223,14 +178,10 @@ export default function CaseStudyHubSpot() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-3xl md:text-4xl font-bold text-brand-black mb-6">
-              Resumen Ejecutivo
+              {t("executiveSummary.title")}
             </h2>
-            <p className="text-lg text-gray-600 leading-relaxed mb-6">
-              <strong>COOPEBANACIO</strong> enfrentaba un desafío crítico de eficiencia operativa: su ecosistema comercial estaba fragmentado entre HubSpot CRM (front-office) y el ERP CODEAS de QUARZO SISTEMAS basado en MS SQL Server (back-office), generando <span className="text-brand-blue font-semibold">silos de datos, doble digitación manual y visibilidad limitada del pipeline comercial</span>.
-            </p>
-            <p className="text-lg text-gray-600 leading-relaxed">
-              DEVIT506 diseñó e implementó una <strong>arquitectura de sincronización bidireccional inteligente</strong> que sincroniza automáticamente más de 10,000 registros entre ambos ecosistemas, alcanzando 100% de tasa de éxito en escritura y una mejora del 50% en velocidad respecto a implementaciones tradicionales.
-            </p>
+            <p className="text-lg text-gray-600 leading-relaxed mb-6" dangerouslySetInnerHTML={{ __html: t("executiveSummary.paragraph1") }} />
+            <p className="text-lg text-gray-600 leading-relaxed" dangerouslySetInnerHTML={{ __html: t("executiveSummary.paragraph2") }} />
           </motion.div>
         </div>
       </section>
@@ -245,16 +196,12 @@ export default function CaseStudyHubSpot() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <span className="text-brand-blue font-semibold text-sm uppercase tracking-wide">El Reto</span>
+              <span className="text-brand-blue font-semibold text-sm uppercase tracking-wide">{t("challenge.badge")}</span>
               <h2 className="text-3xl md:text-4xl font-bold text-brand-black mt-2 mb-6">
-                Fragmentación Operativa entre Front-Office y Back-Office
+                {t("challenge.title")}
               </h2>
-              <p className="text-gray-600 mb-6">
-                La organización operaba con silos críticos de información: HubSpot CRM gestionaba las relaciones comerciales mientras el ERP CODEAS (MS SQL Server) mantenía la información financiera y operativa real.
-              </p>
-              <p className="text-gray-600">
-                Esta desconexión generaba <strong>doble digitación manual</strong>, imposibilidad de visualizar el pipeline comercial en contexto con datos financieros actualizados, y pérdida de agilidad en decisiones estratégicas.
-              </p>
+              <p className="text-gray-600 mb-6" dangerouslySetInnerHTML={{ __html: t("challenge.description1") }} />
+              <p className="text-gray-600" dangerouslySetInnerHTML={{ __html: t("challenge.description2") }} />
             </motion.div>
 
             <motion.div
@@ -264,7 +211,7 @@ export default function CaseStudyHubSpot() {
               transition={{ duration: 0.6 }}
               className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200"
             >
-              <h3 className="text-xl font-semibold text-brand-black mb-6">Pain Points Críticos</h3>
+              <h3 className="text-xl font-semibold text-brand-black mb-6">{t("challenge.painPointsTitle")}</h3>
               <ul className="space-y-4">
                 {painPoints.map((point, index) => (
                   <motion.li
@@ -295,12 +242,12 @@ export default function CaseStudyHubSpot() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <span className="text-brand-blue font-semibold text-sm uppercase tracking-wide">La Solución</span>
+            <span className="text-brand-blue font-semibold text-sm uppercase tracking-wide">{t("solution.badge")}</span>
             <h2 className="text-3xl md:text-4xl font-bold text-brand-black mt-2 mb-4">
-              Arquitectura de Sincronización Bidireccional
+              {t("solution.title")}
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Diseñamos una solución de integración empresarial bidireccional que unifica ambos ecosistemas mediante sincronización automática programada.
+              {t("solution.description")}
             </p>
           </motion.div>
 
@@ -325,7 +272,7 @@ export default function CaseStudyHubSpot() {
             transition={{ duration: 0.6 }}
             className="bg-brand-black rounded-2xl p-8 md:p-12"
           >
-            <h3 className="text-2xl font-bold text-white mb-8">Highlights Técnicos</h3>
+            <h3 className="text-2xl font-bold text-white mb-8">{t("highlights.title")}</h3>
             <div className="grid md:grid-cols-2 gap-4">
               {highlights.map((highlight, index) => (
                 <motion.div
@@ -355,12 +302,12 @@ export default function CaseStudyHubSpot() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <span className="text-brand-blue font-semibold text-sm uppercase tracking-wide">Tecnología</span>
+            <span className="text-brand-blue font-semibold text-sm uppercase tracking-wide">{t("techStack.badge")}</span>
             <h2 className="text-3xl md:text-4xl font-bold text-brand-black mt-2 mb-4">
-              Stack Tecnológico
+              {t("techStack.title")}
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Integración Empresarial & Sincronización de Datos
+              {t("solution.subtitle")}
             </p>
           </motion.div>
 
@@ -410,23 +357,23 @@ export default function CaseStudyHubSpot() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-3xl md:text-4xl font-bold text-brand-black mb-4">
-              ¿Tienes un desafío de integración similar?
+              {t("cta.title")}
             </h2>
             <p className="text-xl text-gray-600 mb-8">
-              Conversemos sobre cómo podemos unificar tus sistemas y optimizar tu operación.
+              {t("cta.description")}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/#contact"
                 className="inline-block bg-brand-blue text-white px-8 py-4 rounded-lg text-lg font-medium hover:bg-brand-blue/90 transition-all shadow-lg hover:shadow-xl"
               >
-                Agenda una Consultoría
+                {tc("scheduleConsultation")}
               </Link>
               <Link
                 href="/#projects"
                 className="inline-block bg-gray-100 text-brand-black px-8 py-4 rounded-lg text-lg font-medium hover:bg-gray-200 transition-all"
               >
-                Ver más Proyectos
+                {tc("viewMoreProjects")}
               </Link>
             </div>
           </motion.div>

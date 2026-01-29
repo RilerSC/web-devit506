@@ -1,10 +1,13 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Link from "next/link";
+import { Link } from "@/navigation";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 export default function Navbar() {
+  const t = useTranslations("navbar");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   // Cerrar menu al hacer scroll
@@ -53,34 +56,35 @@ export default function Navbar() {
 
           {/* Desktop Navigation Links */}
           <div className="hidden md:flex items-center space-x-8">
-            <a 
+            <Link 
               href="/#capabilities" 
               className="text-sm font-medium text-gray-700 hover:text-brand-blue transition-colors duration-200"
             >
-              Capacidades
-            </a>
-            <a 
+              {t("capabilities")}
+            </Link>
+            <Link 
               href="/#projects" 
               className="text-sm font-medium text-gray-700 hover:text-brand-blue transition-colors duration-200"
             >
-              Casos de Éxito
-            </a>
-            <a 
+              {t("projects")}
+            </Link>
+            <Link 
               href="/#contact" 
               className="text-sm font-medium text-gray-700 hover:text-brand-blue transition-colors duration-200"
             >
-              Contacto
-            </a>
+              {t("contact")}
+            </Link>
           </div>
 
-          {/* Desktop CTA Button */}
-          <div className="hidden md:flex items-center">
-            <a
+          {/* Desktop CTA Button & Language Switcher */}
+          <div className="hidden md:flex items-center gap-3">
+            <LanguageSwitcher />
+            <Link
               href="/#contact"
               className="bg-brand-blue text-white px-6 py-2 rounded-md text-sm font-medium hover:bg-brand-blue/90 transition-colors duration-200"
             >
-              Hablemos
-            </a>
+              {t("cta")}
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -141,40 +145,45 @@ export default function Navbar() {
 
           {/* Navigation Links */}
           <nav className="flex-1 px-6 py-8 space-y-1">
-            <a
+            <Link
               href="/#capabilities"
               onClick={handleLinkClick}
               className="block px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg transition-colors duration-200 font-medium"
             >
-              Capacidades
-            </a>
-            <a
+              {t("capabilities")}
+            </Link>
+            <Link
               href="/#projects"
               onClick={handleLinkClick}
               className="block px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg transition-colors duration-200 font-medium"
             >
-              Casos de Éxito
-            </a>
-            <a
+              {t("projects")}
+            </Link>
+            <Link
               href="/#contact"
               onClick={handleLinkClick}
               className="block px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg transition-colors duration-200 font-medium"
             >
-              Contacto
-            </a>
+              {t("contact")}
+            </Link>
+            
+            {/* Language Switcher en móvil */}
+            <div className="pt-4 border-t border-gray-700 mt-4">
+              <LanguageSwitcher />
+            </div>
           </nav>
 
           {/* Footer CTA */}
           <div className="p-6 border-t border-gray-700">
-            <a
+            <Link
               href="/#contact"
               onClick={handleLinkClick}
               className="block w-full bg-brand-blue text-white text-center px-6 py-3 rounded-lg font-medium hover:bg-brand-blue/90 transition-colors duration-200"
             >
-              Hablemos
-            </a>
+              {t("cta")}
+            </Link>
             <p className="mt-4 text-xs text-gray-500 text-center">
-              jrsolorzano@devit506.com
+              {t("email")}
             </p>
           </div>
         </div>

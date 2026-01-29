@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 
 // Lista completa de países del mundo con bandera y código de área (ordenados alfabéticamente)
 const countries = [
@@ -203,6 +204,8 @@ const countries = [
 ];
 
 export default function ContactSection() {
+  const t = useTranslations("contact");
+  
   const [formData, setFormData] = useState({
     name: "",
     company: "",
@@ -294,10 +297,10 @@ export default function ContactSection() {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-8">
           <h2 className="text-3xl md:text-4xl font-bold text-brand-black mb-3">
-            Iniciemos la Conversación
+            {t("title")}
           </h2>
           <p className="text-lg text-gray-600">
-            Cuéntanos sobre tu desafío tecnológico. Respondemos en menos de 24 horas.
+            {t("subtitle")}
           </p>
         </div>
 
@@ -307,7 +310,7 @@ export default function ContactSection() {
             {/* Name Field */}
             <div className="mb-4">
               <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1.5">
-                Nombre Completo *
+                {t("form.name.label")} *
               </label>
               <input
                 type="text"
@@ -317,14 +320,14 @@ export default function ContactSection() {
                 value={formData.name}
                 onChange={handleChange}
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-brand-blue transition-colors text-gray-900 bg-white placeholder:text-gray-400"
-                placeholder="Escribe tu nombre completo"
+                placeholder={t("form.name.placeholder")}
               />
             </div>
 
             {/* Company Field */}
             <div className="mb-4">
               <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-1.5">
-                Empresa *
+                {t("form.company.label")} *
               </label>
               <input
                 type="text"
@@ -334,14 +337,14 @@ export default function ContactSection() {
                 value={formData.company}
                 onChange={handleChange}
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-brand-blue transition-colors text-gray-900 bg-white placeholder:text-gray-400"
-                placeholder="¿Cuál es el nombre de tu empresa?"
+                placeholder={t("form.company.placeholder")}
               />
             </div>
 
             {/* Email Field */}
             <div className="mb-4">
               <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1.5">
-                Email Corporativo *
+                {t("form.email.label")} *
               </label>
               <input
                 type="email"
@@ -351,14 +354,14 @@ export default function ContactSection() {
                 value={formData.email}
                 onChange={handleChange}
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-brand-blue transition-colors text-gray-900 bg-white placeholder:text-gray-400"
-                placeholder="Escribe tu email, para nosotros es importante para poder contactarte"
+                placeholder={t("form.email.placeholder")}
               />
             </div>
 
             {/* Phone Field with Country Selector */}
             <div className="mb-4">
               <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1.5">
-                Teléfono
+                {t("form.phone.label")}
               </label>
               <div className="flex">
                 {/* Country Selector */}
@@ -400,7 +403,7 @@ export default function ContactSection() {
                             type="text"
                             value={countrySearch}
                             onChange={(e) => setCountrySearch(e.target.value)}
-                            placeholder="Buscar país..."
+                            placeholder={t("form.countrySearch.placeholder")}
                             className="w-full px-3 py-2 text-sm border border-gray-200 rounded-md focus:ring-1 focus:ring-brand-blue focus:border-brand-blue text-gray-900 bg-white placeholder:text-gray-400"
                             autoFocus
                           />
@@ -427,7 +430,7 @@ export default function ContactSection() {
                             ))
                           ) : (
                             <div className="px-4 py-3 text-sm text-gray-500 text-center">
-                              No se encontraron países
+                              {t("form.countrySearch.noResults")}
                             </div>
                           )}
                         </div>
@@ -444,7 +447,7 @@ export default function ContactSection() {
                   value={formData.phone}
                   onChange={handleChange}
                   className="flex-1 px-4 py-3 border border-gray-300 rounded-r-lg focus:ring-2 focus:ring-brand-blue focus:border-brand-blue transition-colors text-gray-900 bg-white placeholder:text-gray-400"
-                  placeholder="Escribe tu número de teléfono"
+                  placeholder={t("form.phone.placeholder")}
                 />
               </div>
               <p className="mt-1.5 text-xs text-gray-500">
@@ -457,7 +460,7 @@ export default function ContactSection() {
               {/* Contact Method Preference */}
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1.5">
-                  ¿Cómo prefieres que te contactemos?
+                  {t("form.contactPreference.label")}
                 </label>
                 <div className="flex gap-2">
                   <button
@@ -472,7 +475,7 @@ export default function ContactSection() {
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
-                    <span className="font-medium text-sm">Correo</span>
+                    <span className="font-medium text-sm">{t("form.contactPreference.email")}</span>
                   </button>
                   <button
                     type="button"
@@ -486,7 +489,7 @@ export default function ContactSection() {
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                     </svg>
-                    <span className="font-medium text-sm">Teléfono</span>
+                    <span className="font-medium text-sm">{t("form.contactPreference.phone")}</span>
                   </button>
                 </div>
               </div>
@@ -494,7 +497,7 @@ export default function ContactSection() {
               {/* Language Preference */}
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1.5">
-                  Idioma de preferencia
+                  {t("form.language.label")}
                 </label>
                 <div className="flex gap-2">
                   <button
@@ -507,7 +510,7 @@ export default function ContactSection() {
                     }`}
                   >
                     <span className="text-lg">🇪🇸</span>
-                    <span className="font-medium text-sm">Español</span>
+                    <span className="font-medium text-sm">{t("form.language.spanish")}</span>
                   </button>
                   <button
                     type="button"
@@ -519,7 +522,7 @@ export default function ContactSection() {
                     }`}
                   >
                     <span className="text-lg">🇺🇸</span>
-                    <span className="font-medium text-sm">English</span>
+                    <span className="font-medium text-sm">{t("form.language.english")}</span>
                   </button>
                 </div>
               </div>
@@ -543,7 +546,7 @@ export default function ContactSection() {
             {/* Challenge Field */}
             <div className="mb-4">
               <label htmlFor="challenge" className="block text-sm font-medium text-gray-700 mb-1.5">
-                Desafío Tecnológico *
+                {t("form.challenge.label")} *
               </label>
               <textarea
                 id="challenge"
@@ -553,7 +556,7 @@ export default function ContactSection() {
                 onChange={handleChange}
                 rows={4}
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-brand-blue transition-colors resize-none text-gray-900 bg-white placeholder:text-gray-400"
-                placeholder="Cuéntanos sobre tu proyecto, desafío tecnológico o necesidad de consultoría estratégica..."
+                placeholder={t("form.challenge.placeholder")}
               />
             </div>
 
@@ -592,28 +595,27 @@ export default function ContactSection() {
                     <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                     <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                   </svg>
-                  Enviando...
+                  {t("form.submitting")}
                 </>
               ) : (
-                "Enviar Mensaje"
+                t("form.submit")
               )}
             </button>
 
             {/* Privacy Notice */}
             <p className="mt-4 text-xs text-gray-500 text-center">
-              Al enviar este formulario, aceptas que DEVIT506 almacene tus datos para contactarte. 
-              No compartimos tu información con terceros.
+              {t("form.privacyNotice")}
             </p>
           </form>
 
           {/* Alternative Contact */}
           <div className="mt-6 text-center">
-            <p className="text-gray-600 mb-2">¿Prefieres escribirnos directamente?</p>
+            <p className="text-gray-600 mb-2">{t("alternativeContact.text")}</p>
             <a 
               href="mailto:info@devit506.com" 
               className="text-brand-blue font-medium hover:text-brand-blue/80 transition-colors"
             >
-              info@devit506.com
+              {t("alternativeContact.email")}
             </a>
           </div>
         </div>

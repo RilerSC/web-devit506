@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Link from "next/link";
+import { Link } from "@/navigation";
+import { useTranslations } from "next-intl";
 
 // Componente de tarjeta KPI de ingeniería
 function EngineeringKPI({ 
@@ -126,42 +127,11 @@ function Phase1Feature({
 }
 
 export default function CaseStudyObservatorio() {
-  const engineeringKPIs = [
-    { 
-      value: "-55%", 
-      label: "Bundle JS", 
-      detail: "Optimización Server-First" 
-    },
-    { 
-      value: "<1s", 
-      label: "Tiempo de Carga", 
-      detail: "LCP Optimizado" 
-    },
-    { 
-      value: "Azure-Ready", 
-      label: "Arquitectura", 
-      detail: "Big Data & IA" 
-    },
-  ];
+  const t = useTranslations("projectDetails.observatorio");
+  const tc = useTranslations("projectDetails.common");
 
-  const phase1Features = [
-    {
-      title: "Arquitectura Server-First",
-      description: "Next.js 15 (App Router) con React 19, maximizando el renderizado del lado del servidor para performance óptima."
-    },
-    {
-      title: "Eficiencia de Carga Extrema",
-      description: "Reducción del 55% en JavaScript enviado al cliente (-1,860 KB del bundle original) mediante Server Components."
-    },
-    {
-      title: "Gestión de Contenidos Desacoplada",
-      description: "Sistema de datos basado en estructuras JSON, preparado para migración transparente a bases de datos relacionales."
-    },
-    {
-      title: "Visor de Documentos con Streaming",
-      description: "Experiencia de usuario premium con streaming progresivo para carga instantánea de archivos técnicos pesados."
-    }
-  ];
+  const engineeringKPIs = t.raw("hero.kpis") as Array<{value: string; label: string; detail: string}>;
+  const phase1Features = t.raw("phase1.items") as Array<{title: string; description: string}>;
 
   const roadmapModules = [
     {
@@ -241,7 +211,7 @@ export default function CaseStudyObservatorio() {
               <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
               </svg>
-              Volver a Proyectos
+              {tc("backToProjects")}
             </Link>
           </motion.div>
 
@@ -253,10 +223,10 @@ export default function CaseStudyObservatorio() {
             className="mb-6 flex flex-wrap gap-3"
           >
             <span className="inline-block px-4 py-2 bg-brand-blue/20 text-brand-blue rounded-full text-sm font-medium">
-              Data & Sostenibilidad • 2026
+              {t("meta.category")} • {t("meta.year")}
             </span>
             <span className="inline-block px-4 py-2 bg-green-500/20 text-green-400 rounded-full text-sm font-medium">
-              ✓ Fase 1 en Producción
+              ✓ {tc("completed")} {t("phase1.badge")}
             </span>
           </motion.div>
 
@@ -267,8 +237,8 @@ export default function CaseStudyObservatorio() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 max-w-4xl"
           >
-            Observatorio de Sostenibilidad:{" "}
-            <span className="text-brand-blue">Inteligencia de Datos</span> para el Desarrollo
+            {t("hero.title")}{" "}
+            <span className="text-brand-blue">{t("hero.titleHighlight")}</span>
           </motion.h1>
 
           {/* Client */}
@@ -278,7 +248,7 @@ export default function CaseStudyObservatorio() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="text-xl text-gray-400 mb-4"
           >
-            Cliente: <span className="text-white">Universidad FUNDEPOS</span>
+            {tc("client")}: <span className="text-white">{t("meta.client")}</span>
           </motion.p>
 
           <motion.p
@@ -287,8 +257,8 @@ export default function CaseStudyObservatorio() {
             transition={{ duration: 0.6, delay: 0.35 }}
             className="text-lg text-gray-500 mb-12 max-w-3xl"
           >
-            Hub de Inteligencia que conecta la academia con los sectores empresarial y gubernamental, 
-            facilitando la transparencia y la toma de decisiones basada en <span className="text-brand-blue font-semibold">datos reales de sostenibilidad</span>.
+            {t("hero.description")}{" "}
+            <span className="text-brand-blue font-semibold">{t("hero.descriptionHighlight")}</span>.
           </motion.p>
 
           {/* Engineering KPIs */}
@@ -315,16 +285,12 @@ export default function CaseStudyObservatorio() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <span className="text-brand-blue font-semibold text-sm uppercase tracking-wide">Valor Estratégico</span>
+            <span className="text-brand-blue font-semibold text-sm uppercase tracking-wide">{t("executiveSummary.badge")}</span>
             <h2 className="text-3xl md:text-4xl font-bold text-brand-black mt-2 mb-6">
-              Resumen Ejecutivo
+              {t("executiveSummary.title")}
             </h2>
-            <p className="text-lg text-gray-600 leading-relaxed mb-6">
-              El <strong>Observatorio de Sostenibilidad</strong> de la Universidad FUNDEPOS es una plataforma digital de vanguardia diseñada para centralizar, analizar y comunicar indicadores críticos de desarrollo sostenible.
-            </p>
-            <p className="text-lg text-gray-600 leading-relaxed">
-              Más que un sitio web institucional, es un <span className="text-brand-blue font-semibold">Hub de Inteligencia</span> que conecta la academia con los sectores empresarial y gubernamental, facilitando la transparencia y la toma de decisiones basada en datos reales.
-            </p>
+            <p className="text-lg text-gray-600 leading-relaxed mb-6" dangerouslySetInnerHTML={{ __html: t("executiveSummary.paragraph1") }} />
+            <p className="text-lg text-gray-600 leading-relaxed" dangerouslySetInnerHTML={{ __html: t("executiveSummary.paragraph2") }} />
           </motion.div>
         </div>
       </section>

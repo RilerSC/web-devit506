@@ -3,6 +3,7 @@
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { useEffect } from "react";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 // Componente de contador animado
 function AnimatedCounter({ 
@@ -134,32 +135,34 @@ function ClientLogo({
 }
 
 export default function TrustBar() {
+  const t = useTranslations("trustBar");
+
   const kpis = [
     {
       value: 50,
       suffix: "+",
-      label: "Proyectos Exitosos",
+      label: t("kpis.projects"),
       decimals: 0,
       delay: 0,
     },
     {
       value: 30,
       suffix: "+",
-      label: "Clientes Satisfechos",
+      label: t("kpis.clients"),
       decimals: 0,
       delay: 0.1,
     },
     {
       value: 12,
       suffix: "+",
-      label: "Años de Trayectoria",
+      label: t("kpis.experience"),
       decimals: 0,
       delay: 0.2,
     },
     {
       value: 99.9,
       suffix: "%",
-      label: "Uptime en Soluciones",
+      label: t("kpis.uptime"),
       decimals: 1,
       delay: 0.3,
     },
@@ -189,7 +192,7 @@ export default function TrustBar() {
             transition={{ duration: 0.5 }}
             className="text-center text-base md:text-lg font-semibold text-gray-800 mb-5"
           >
-            Nuestra Trayectoria en Números
+            {t("kpisTitle")}
           </motion.h3>
           
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
@@ -212,7 +215,7 @@ export default function TrustBar() {
             transition={{ duration: 0.5, delay: 0.5 }}
             className="text-center text-xs md:text-sm text-gray-400 mt-4"
           >
-            Experiencia desde 2012 • Soluciones robustas y confiables
+            {t("kpisFooter")}
           </motion.p>
         </div>
 
@@ -225,7 +228,7 @@ export default function TrustBar() {
             transition={{ duration: 0.5 }}
             className="text-center text-base md:text-lg font-semibold text-gray-800 mb-5"
           >
-            Ellos confían en nosotros
+            {t("clientsTitle")}
           </motion.h3>
           
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-6">
