@@ -106,14 +106,14 @@ export default function SchedulePage() {
   return (
     <main className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
       {/* Hero Section */}
-      <section className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
+      <section className="pt-16 lg:pt-20 xl:pt-24 pb-6 lg:pb-8 xl:pb-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
           {/* Back Button */}
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="mb-8"
+            className="mb-2 lg:mb-4"
           >
             <Link 
               href="/" 
@@ -131,9 +131,9 @@ export default function SchedulePage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="mb-6"
+            className="mb-2 lg:mb-3 xl:mb-4"
           >
-            <span className="inline-block px-4 py-2 bg-brand-blue/10 text-brand-blue rounded-full text-sm font-medium">
+            <span className="inline-block px-3 py-1.5 bg-brand-blue/10 text-brand-blue rounded-full text-xs lg:text-sm font-medium">
               {t("hero.badge")}
             </span>
           </motion.div>
@@ -143,7 +143,7 @@ export default function SchedulePage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-bold text-brand-black mb-6"
+            className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-brand-black mb-3 lg:mb-4 xl:mb-5"
           >
             {t("hero.title")}{" "}
             <span className="text-brand-blue">{t("hero.titleHighlight")}</span>
@@ -154,7 +154,7 @@ export default function SchedulePage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-xl text-gray-600 mb-12 max-w-3xl mx-auto"
+            className="text-sm md:text-base lg:text-lg text-gray-600 mb-4 lg:mb-6 xl:mb-8 max-w-3xl mx-auto"
           >
             {t("hero.subtitle")}
           </motion.p>
@@ -164,7 +164,7 @@ export default function SchedulePage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-3xl mx-auto mb-16"
+            className="grid grid-cols-1 md:grid-cols-2 gap-2 lg:gap-3 max-w-3xl mx-auto mb-6 lg:mb-8 xl:mb-12"
           >
             {(t.raw("hero.features") as string[]).map((feature, index) => (
               <motion.div
@@ -172,14 +172,14 @@ export default function SchedulePage() {
                 initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
-                className="group flex items-center gap-4 text-left bg-white rounded-xl p-5 shadow-md border border-gray-100 hover:shadow-xl hover:border-brand-blue/20 transition-all duration-300 hover:-translate-y-1"
+                className="group flex items-center gap-2 lg:gap-3 text-left bg-white rounded-lg p-2 md:p-3 lg:p-4 shadow-md border border-gray-100 hover:shadow-xl hover:border-brand-blue/20 transition-all duration-300 hover:-translate-y-1"
               >
-                <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-brand-blue to-blue-600 rounded-xl flex items-center justify-center shadow-lg shadow-brand-blue/20 group-hover:scale-110 transition-transform duration-300">
-                  <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="flex-shrink-0 w-6 h-6 lg:w-8 lg:h-8 bg-gradient-to-br from-brand-blue to-blue-600 rounded-lg flex items-center justify-center shadow-lg shadow-brand-blue/20 group-hover:scale-110 transition-transform duration-300">
+                  <svg className="w-3 h-3 lg:w-4 lg:h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
-                <span className="text-gray-700 font-medium">{feature}</span>
+                <span className="text-xs md:text-sm text-gray-700 font-medium">{feature}</span>
               </motion.div>
             ))}
           </motion.div>
@@ -187,7 +187,7 @@ export default function SchedulePage() {
       </section>
 
       {/* Calendar Section */}
-      <section className="pb-20 px-4 sm:px-6 lg:px-8">
+      <section className="pb-12 lg:pb-16 xl:pb-20 px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -215,14 +215,14 @@ export default function SchedulePage() {
             <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-brand-blue via-blue-400 to-brand-blue"></div>
             
             {/* Container con padding mejorado */}
-            <div className="p-4 sm:p-6 md:p-10 min-h-[700px]">
+            <div className="p-4 md:p-6 lg:p-8 xl:p-10 min-h-[600px] lg:min-h-[650px] xl:min-h-[700px]">
               {/* Widget Container */}
               <div 
                 key={widgetConfig.containerId}
                 id={widgetConfig.containerId}
                 className="w-full"
                 style={{
-                  minHeight: "650px",
+                  minHeight: "550px",
                   borderRadius: "12px"
                 }}
               ></div>
@@ -252,7 +252,7 @@ export default function SchedulePage() {
       />
 
       {/* Trust Indicators */}
-      <section className="pb-20 px-4 sm:px-6 lg:px-8">
+      <section className="pb-12 lg:pb-16 xl:pb-20 px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -260,34 +260,34 @@ export default function SchedulePage() {
           className="max-w-6xl mx-auto"
         >
           {/* Main Trust Card */}
-          <div className="bg-gradient-to-br from-brand-blue/5 via-blue-50/30 to-brand-blue/5 rounded-2xl p-8 md:p-10 border border-brand-blue/10 backdrop-blur-sm">
-            <div className="text-center mb-8">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-brand-blue rounded-2xl mb-4 shadow-lg shadow-brand-blue/20">
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div className="bg-gradient-to-br from-brand-blue/5 via-blue-50/30 to-brand-blue/5 rounded-2xl p-6 md:p-8 lg:p-10 border border-brand-blue/10 backdrop-blur-sm">
+            <div className="text-center mb-6 lg:mb-8">
+              <div className="inline-flex items-center justify-center w-12 h-12 lg:w-14 lg:h-14 xl:w-16 xl:h-16 bg-brand-blue rounded-2xl mb-3 lg:mb-4 shadow-lg shadow-brand-blue/20">
+                <svg className="w-6 h-6 lg:w-7 lg:h-7 xl:w-8 xl:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                 </svg>
               </div>
-              <h3 className="text-2xl font-bold text-brand-black mb-2">
+              <h3 className="text-xl lg:text-2xl font-bold text-brand-black mb-2">
                 Servicios de CTO Externo desde 2012
               </h3>
-              <p className="text-gray-600 text-lg">
+              <p className="text-gray-600 text-base lg:text-lg">
                 Experiencia trabajando con empresas líderes en fintech, educación y servicios empresariales
               </p>
             </div>
 
             {/* Trust Stats Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-              <div className="text-center p-6 bg-white/60 rounded-xl backdrop-blur-sm border border-white/50">
-                <div className="text-3xl font-bold text-brand-blue mb-2">12+</div>
-                <p className="text-gray-600 text-sm">Años de Experiencia</p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-6 mt-6 lg:mt-8">
+              <div className="text-center p-4 lg:p-5 xl:p-6 bg-white/60 rounded-xl backdrop-blur-sm border border-white/50">
+                <div className="text-2xl lg:text-3xl font-bold text-brand-blue mb-1 lg:mb-2">12+</div>
+                <p className="text-gray-600 text-xs lg:text-sm">Años de Experiencia</p>
               </div>
-              <div className="text-center p-6 bg-white/60 rounded-xl backdrop-blur-sm border border-white/50">
-                <div className="text-3xl font-bold text-brand-blue mb-2">30min</div>
-                <p className="text-gray-600 text-sm">Sesión Sin Costo</p>
+              <div className="text-center p-4 lg:p-5 xl:p-6 bg-white/60 rounded-xl backdrop-blur-sm border border-white/50">
+                <div className="text-2xl lg:text-3xl font-bold text-brand-blue mb-1 lg:mb-2">30min</div>
+                <p className="text-gray-600 text-xs lg:text-sm">Sesión Sin Costo</p>
               </div>
-              <div className="text-center p-6 bg-white/60 rounded-xl backdrop-blur-sm border border-white/50">
-                <div className="text-3xl font-bold text-brand-blue mb-2">100%</div>
-                <p className="text-gray-600 text-sm">Sin Compromiso</p>
+              <div className="text-center p-4 lg:p-5 xl:p-6 bg-white/60 rounded-xl backdrop-blur-sm border border-white/50">
+                <div className="text-2xl lg:text-3xl font-bold text-brand-blue mb-1 lg:mb-2">100%</div>
+                <p className="text-gray-600 text-xs lg:text-sm">Sin Compromiso</p>
               </div>
             </div>
           </div>
