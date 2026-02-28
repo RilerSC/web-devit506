@@ -2,8 +2,9 @@
   "navbar": {
     "capabilities": "Capacidades",
     "projects": "Casos de Éxito",
+    "schedule": "Agendar",
     "contact": "Contacto",
-    "cta": "Hablemos",
+    "cta": "Agendar Consultoría",
     "email": "jrsolorzano@devit506.com"
   },
   "hero": {
@@ -632,5 +633,25 @@
         "description": "Conversemos sobre cómo crear soluciones escalables para tu organización."
       }
     }
+  },
+  "schedule": {
+    "meta": {
+      "title": "Agenda una Consultoría | DEVIT506",
+      "description": "Reserva una sesión de consultoría con nuestro equipo. Conversemos sobre tus desafíos tecnológicos y cómo podemos ayudarte."
+    },
+    "hero": {
+      "badge": "Consultoría Estratégica",
+      "title": "Conversemos sobre tus",
+      "titleHighlight": "Desafíos Tecnológicos",
+      "subtitle": "Agenda una sesión de 30 minutos con nuestro equipo. Sin compromiso, sin presión. Solo una conversación directa sobre cómo podemos ayudarte a alcanzar tus objetivos.",
+      "features": [
+        "Sesión de 30 minutos vía Google Meet",
+        "Análisis inicial de tu situación tecnológica",
+        "Recomendaciones estratégicas inmediatas",
+        "Sin costo y sin compromiso"
+      ]
+    },
+    "loading": "Cargando calendario...",
+    "backToHome": "Volver al Inicio"
   }
 }

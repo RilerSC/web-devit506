@@ -69,6 +69,12 @@ export default function Navbar() {
               {t("projects")}
             </Link>
             <Link 
+              href="/agendar" 
+              className="text-sm font-medium text-gray-700 hover:text-brand-blue transition-colors duration-200"
+            >
+              {t("schedule")}
+            </Link>
+            <Link 
               href="/#contact" 
               className="text-sm font-medium text-gray-700 hover:text-brand-blue transition-colors duration-200"
             >
@@ -80,7 +86,7 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-3">
             <LanguageSwitcher />
             <Link
-              href="/#contact"
+              href="/agendar"
               className="bg-brand-blue text-white px-6 py-2 rounded-md text-sm font-medium hover:bg-brand-blue/90 transition-colors duration-200"
             >
               {t("cta")}
@@ -160,6 +166,13 @@ export default function Navbar() {
               {t("projects")}
             </Link>
             <Link
+              href="/agendar"
+              onClick={handleLinkClick}
+              className="block px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg transition-colors duration-200 font-medium"
+            >
+              {t("schedule")}
+            </Link>
+            <Link
               href="/#contact"
               onClick={handleLinkClick}
               className="block px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg transition-colors duration-200 font-medium"
@@ -176,7 +189,7 @@ export default function Navbar() {
           {/* Footer CTA */}
           <div className="p-6 border-t border-gray-700">
             <Link
-              href="/#contact"
+              href="/agendar"
               onClick={handleLinkClick}
               className="block w-full bg-brand-blue text-white text-center px-6 py-3 rounded-lg font-medium hover:bg-brand-blue/90 transition-colors duration-200"
             >

@@ -2,8 +2,9 @@
   "navbar": {
     "capabilities": "Capabilities",
     "projects": "Case Studies",
+    "schedule": "Schedule",
     "contact": "Contact",
-    "cta": "Let's Talk",
+    "cta": "Book Consultation",
     "email": "jrsolorzano@devit506.com"
   },
   "hero": {
@@ -632,5 +633,25 @@
         "description": "Let's discuss how to create scalable solutions for your organization."
       }
     }
+  },
+  "schedule": {
+    "meta": {
+      "title": "Schedule a Consultation | DEVIT506",
+      "description": "Book a consultation session with our team. Let's discuss your technology challenges and how we can help you."
+    },
+    "hero": {
+      "badge": "Strategic Consulting",
+      "title": "Let's Talk About Your",
+      "titleHighlight": "Technology Challenges",
+      "subtitle": "Schedule a 30-minute session with our team. No commitment, no pressure. Just a straightforward conversation about how we can help you achieve your goals.",
+      "features": [
+        "30-minute session via Google Meet",
+        "Initial analysis of your technology situation",
+        "Immediate strategic recommendations",
+        "Free and no commitment required"
+      ]
+    },
+    "loading": "Loading calendar...",
+    "backToHome": "Back to Home"
   }
 }
